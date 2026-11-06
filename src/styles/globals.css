@@ -23,6 +23,11 @@ a {
   color: var(--color-frond);
   text-decoration: none;
 }
+a,
+button,
+label {
+  -webkit-tap-highlight-color: rgba(217, 161, 59, 0.18);
+}
 button,
 input,
 textarea,
@@ -278,7 +283,7 @@ main:focus {
 }
 .site-header__logo {
   display: inline-flex;
-  padding: 8px 0;
+  padding: 9px 0;
 }
 .site-header__nav {
   display: flex;
@@ -374,6 +379,21 @@ main:focus {
   .mobile-menu__contact {
     display: none !important;
   }
+  .mobile-menu__direct {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    padding: 0 0 24px;
+  }
+  .mobile-menu .mobile-menu__direct a {
+    display: inline-flex;
+    min-height: 44px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--color-muted-on-dark);
+    border-bottom: 0;
+  }
   .mobile-menu a[aria-current="page"]::after {
     content: "";
     width: 24px;
@@ -382,7 +402,23 @@ main:focus {
   }
 }
 
+/* Narrow phones: a tighter header keeps Contact visible down to 360px. */
 @media (max-width: 374px) {
+  .site-header__bar {
+    gap: 8px;
+  }
+  .site-header__nav {
+    gap: 6px;
+  }
+  .site-header__contact {
+    padding: 0 14px;
+  }
+  .menu-button {
+    min-width: 44px;
+    padding: 0 12px;
+  }
+}
+@media (max-width: 359px) {
   .site-header__contact {
     display: none;
   }
@@ -630,9 +666,13 @@ main:focus {
 .pimg {
   transition: transform var(--dur-image-zoom) var(--ease-out);
 }
-.pcard:hover .pimg,
 .pcard:focus-within .pimg {
   transform: scale(1.04);
+}
+@media (hover: hover) {
+  .pcard:hover .pimg {
+    transform: scale(1.04);
+  }
 }
 
 /* ---------- Home: why Darby ---------- */
@@ -727,6 +767,9 @@ main:focus {
   gap: 12px 28px;
 }
 .prompt__phone {
+  display: inline-block;
+  padding: 10px 0;
+  margin: -10px 0;
   font-size: 17px;
   line-height: 24px;
   font-weight: 600;
@@ -1215,6 +1258,10 @@ main:focus {
   font-weight: 500;
 }
 a.details__value {
+  display: inline-block;
+  /* 44px tap target without changing the row's layout */
+  padding: 8px 0;
+  margin: -8px 0;
   transition: color 0.2s ease;
 }
 a.details__value:hover {
@@ -1543,6 +1590,217 @@ a.details__value:hover {
   font-weight: 600;
 }
 
+/* ---------- Phones ----------
+ * The prototype was designed desktop-first and keeps desktop spacing on phones.
+ * This layer tightens rhythm, makes controls thumb-friendly and shortens the catalog.
+ * Nothing here applies above 760px, so tablet and desktop stay pixel-identical.
+ */
+@media (max-width: 760px) {
+  :root {
+    --section-pad: 80px;
+  }
+
+  /* Buttons share the row evenly instead of wrapping at ragged widths. */
+  .btn-row > .btn {
+    flex: 1 1 auto;
+  }
+
+  /* Home */
+  .hero__lead {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .supply__inner {
+    gap: 56px;
+  }
+  .division-rows {
+    gap: 72px;
+  }
+  .division-row {
+    gap: 28px;
+  }
+  .division-row__body {
+    gap: 16px;
+  }
+  .division-row__cta .btn {
+    width: 100%;
+  }
+  .proof__inner {
+    gap: 44px;
+  }
+  .proof__items {
+    gap: 36px;
+  }
+  .proof__item {
+    gap: 10px;
+    padding-top: 24px;
+  }
+  .prompt__inner {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+  .prompt__rule {
+    padding-top: 36px;
+    gap: 28px;
+  }
+
+  /* Division hero: let content set the height; the panel no longer floats in space. */
+  .dhero {
+    min-height: 0;
+  }
+  .dhero__inner {
+    gap: 36px;
+    padding-top: 36px;
+    padding-bottom: 48px;
+  }
+  .dpanel {
+    min-height: 0;
+    padding: 32px 24px;
+  }
+  .c16__line {
+    left: -24px;
+    right: -24px;
+  }
+
+  /* Catalog */
+  .catalog__inner {
+    gap: 24px;
+    padding-top: 64px;
+    padding-bottom: 72px;
+  }
+  .filters--scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-left: calc(-1 * var(--container-pad));
+    margin-right: calc(-1 * var(--container-pad));
+    padding: 2px var(--container-pad);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: var(--container-pad);
+  }
+  .filters--scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .filters--scroll .pill {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .strip__inner {
+    gap: 28px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .specs__inner {
+    gap: 32px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .specs__submit {
+    flex: 1 1 100%;
+  }
+
+  /* Contact */
+  .contact__intro {
+    gap: 24px;
+  }
+  .contact__lead {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .details__value {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .details__row {
+    padding: 16px 0;
+  }
+  .contact__inner {
+    gap: 40px;
+  }
+  .cform__group .filters .pill {
+    flex: 1 1 auto;
+  }
+  .cform__submit {
+    width: 100%;
+  }
+  .sent {
+    min-height: 420px;
+  }
+  .ports__inner {
+    gap: 40px;
+  }
+  .ports__text {
+    gap: 22px;
+  }
+  .coast__city {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .ports__media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Footer and simple pages */
+  .site-footer__inner {
+    gap: 40px;
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+  .site-footer__legal {
+    flex-direction: column;
+  }
+  .prose__inner {
+    padding-top: 56px;
+  }
+}
+
+/* Single-column phones: compact list cards and an edge-to-edge contact form. */
+@media (max-width: 567px) {
+  .grid {
+    gap: 12px;
+  }
+  .card {
+    flex-direction: row;
+  }
+  .card__media {
+    flex: 0 0 34%;
+    aspect-ratio: auto;
+    min-height: 168px;
+  }
+  .card__body {
+    min-width: 0;
+    gap: 6px;
+    padding: 16px 16px 6px;
+  }
+  .card__cat {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+  .card__name {
+    font-size: 21px;
+    line-height: 1.15;
+  }
+  .card__subtitle {
+    font-size: 14px;
+  }
+  .card__desc {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .card__link {
+    padding-top: 2px;
+    font-size: 14px;
+  }
+
+  .form-card {
+    margin-left: calc(-1 * var(--container-pad));
+    margin-right: calc(-1 * var(--container-pad));
+    border-radius: 0;
+    padding: 32px var(--container-pad) 36px;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .hero-video {
@@ -1554,6 +1812,6 @@ a.details__value:hover {
   }
   .pcard:hover .pimg,
   .pcard:focus-within .pimg {
-    transform: none;
+    transform: none !important;
   }
 }

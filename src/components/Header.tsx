@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import { nav } from "@/lib/site";
+import { nav, site } from "@/lib/site";
 import { Wordmark } from "./Wordmark";
 
 export function Header() {
@@ -87,6 +87,10 @@ export function Header() {
               </Link>
             </li>
           </ul>
+          <div className="mobile-menu__direct">
+            <a href={site.phone.href}>{site.phone.display}</a>
+            <a href={site.email.href}>{site.email.display}</a>
+          </div>
         </nav>
       </div>
     </header>

@@ -83,7 +83,8 @@ Set `CONTACT_WEBHOOK_URL` and `SPEC_WEBHOOK_URL` to receive each submission as a
 
 ## Changes from the prototype (from the spec and open items)
 
-- **Phone header** (≤760px): logo, Contact and a menu button that opens the three links. Below 375px, Contact moves into the menu.
+- **Phone header** (≤760px): logo, Contact and a menu button that opens the three links plus phone and email. Below 360px, Contact moves into the menu.
+- **Phone layout** (≤760px; tablet and desktop are untouched): tighter section spacing, division heroes sized to their content, full-width buttons, catalog filters on one swipeable row, compact list-style product cards below 568px, an edge-to-edge contact form, and 44px tap areas on phone and email links. Hover zoom only runs on devices that can hover.
 - **Spec form consent** (open item #8): an explicit opt-in checkbox replaces "Submitting also subscribes this address…", and the note line links to the privacy policy.
 - **Privacy link** in the footer legal line and under the contact form.
 - **Hover states** on buttons and links (the prototype's inline styles suppressed them).

@@ -51,7 +51,7 @@ export function ProductCatalog({
           Showing {shown} {shown === 1 ? "product" : "products"}
         </span>
       </div>
-      <div role="group" aria-label="Filter by type" className="filters">
+      <div role="group" aria-label="Filter by type" className="filters filters--scroll">
         {[ALL, ...categories.map((c) => c.name)].map((cat) => (
           <button
             key={cat}
