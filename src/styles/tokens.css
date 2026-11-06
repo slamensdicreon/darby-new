@@ -1,0 +1,57 @@
+/* Darby design tokens — darbyinc.com redesign
+   Values are taken from the approved prototype. Use these as the single source in the build.
+   Copied from the handover package (docs/handover/tokens); only --font-family is adapted for next/font. */
+:root {
+  /* Color — Frond & Olein palette */
+  --color-frond: #1E3B2F;        /* primary dark ground: header, heroes, proof band */
+  --color-deep: #132A22;         /* deeper ground: footer, panels, video fallback */
+  --color-olein: #D9A13B;        /* gold: equator line, primary button, accents on dark */
+  --color-kernel: #F3EDE2;       /* warm white: light ground; text on dark */
+  --color-ink: #14161A;          /* text on light */
+  --color-white: #FFFFFF;        /* cards, form surface */
+  --color-gold-text: #8A5F10;    /* gold for small text on light (4.84:1 on kernel) */
+  --color-muted-on-dark: #C9C2B3;   /* secondary text on frond/deep (6.88:1 on frond) */
+  --color-muted-on-light: #4A5249;  /* secondary text on kernel/white (6.95:1 on kernel) */
+  --color-error: #A3301F;        /* form errors (7.00:1 on white) */
+  --color-image-ground: #EAE3D6; /* behind product images while loading */
+  --line-on-dark: rgba(243, 237, 226, 0.16);
+  --line-on-light: rgba(20, 22, 26, 0.14);
+  --border-input: rgba(20, 22, 26, 0.30);
+
+  /* Hero video shade (behind text over footage). Tested against every frame of the film. */
+  --hero-shade: linear-gradient(90deg, rgba(19,42,34,0.86) 0%, rgba(19,42,34,0.80) 50%, rgba(19,42,34,0.50) 75%, rgba(19,42,34,0.28) 100%);
+  --hero-shade-tablet: linear-gradient(90deg, rgba(19,42,34,0.86) 0%, rgba(19,42,34,0.80) 70%, rgba(19,42,34,0.55) 100%); /* <= 1100px */
+  --hero-shade-phone: rgba(19,42,34,0.82); /* <= 760px */
+
+  /* Type — Hanken Grotesk (Google Fonts, SIL Open Font License) */
+  --font-family: var(--font-hanken, 'Hanken Grotesk'), 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; /* self-hosted via next/font */
+  --weight-regular: 400; --weight-medium: 500; --weight-semibold: 600;
+  --text-hero: clamp(44px, min(6.2vw, 10.5svh), 88px);        /* home H1; lh 1.0; tracking -0.03em */
+  --text-page-title: clamp(44px, min(5.6vw, 9.6svh), 80px);   /* division and contact H1; lh 1.02; -0.025em */
+  --text-cta-title: clamp(40px, 4.8vw, 68px);                 /* contact prompt H2; lh 1.02 */
+  --text-section-title: clamp(34px, 4vw, 56px);               /* section H2; lh 1.06; -0.025em */
+  --text-row-title: clamp(34px, 3.6vw, 52px);                 /* division row H3 */
+  --text-proof-number: clamp(48px, 5vw, 72px);                /* RSPO / 6 / 1992; weight 400; -0.03em */
+  --text-lead: clamp(17px, 2.7svh, 20px);                     /* hero body; lh 1.55 */
+  --text-body-lg: 18px;  /* lh 28px */
+  --text-body: 16px;     /* lh 25px */
+  --text-small: 15px;    /* lh 22–23px; card body, links */
+  --text-label: 12px;    /* uppercase, weight 600, tracking 0.2em */
+  --text-button: 15px;   /* weight 600 */
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-pad: clamp(20px, 4vw, 56px);
+  --header-height: 72px;                    /* + 1px bottom border */
+  --section-pad: 128px;                     /* default vertical padding, desktop */
+  --radius: 2px;                            /* one radius site-wide */
+  --tap-min: 44px;                          /* minimum target size; buttons 48px */
+
+  /* Above the fold: hero fills the visible window on laptops, capped on large monitors */
+  --hero-home-height: clamp(560px, calc(100svh - 73px), 820px);
+  --hero-division-height: clamp(540px, calc(100svh - 73px), 800px);
+
+  /* Motion */
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --dur-image-zoom: .6s;  /* product image scale(1.04) on hover/focus; disabled under prefers-reduced-motion */
+}
