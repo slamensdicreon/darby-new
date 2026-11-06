@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { homeSeo, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "@/styles/tokens.css";
 import "@/styles/globals.css";
@@ -18,17 +19,10 @@ const hanken = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Darby | Palm fats for feed and food",
-  description:
-    "Darby supplies palm-based bypass fats for dairy and beef rations and specialty fats for bakery and confectionery, sourced from RSPO-certified producers and stocked at six U.S. ports.",
-  applicationName: "Darby",
-  openGraph: {
-    type: "website",
-    siteName: "Darby",
-    locale: "en_US",
-    images: [{ url: "/assets/video/darby-hero-poster.jpg", alt: "Palm fronds against a sunset over the sea" }],
-  },
-  twitter: { card: "summary_large_image" },
+  ...pageMetadata(homeSeo),
+  // Pages set their own canonical; the 404 and any future page without one get none.
+  alternates: undefined,
+  applicationName: site.name,
   formatDetection: { telephone: false, email: false, address: false },
   robots: site.indexable ? undefined : { index: false, follow: false },
 };

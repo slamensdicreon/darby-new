@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Hanken; src: url("../../src/app/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; }
+  :root { --frond:#1E3B2F; --deep:#132A22; --olein:#D9A13B; --kernel:#F3EDE2; --muted:#C9C2B3; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; font-family: Hanken, Arial, sans-serif; color: var(--kernel); background: var(--frond); -webkit-font-smoothing: antialiased; }
+  .card { position: relative; width: 1200px; height: 630px; display: flex; }
+  .label { font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+  .equator { display: flex; align-items: center; gap: 18px; }
+  .equator .deg { font-size: 17px; font-weight: 600; letter-spacing: .1em; }
+  .equator .line { flex: 1; height: 3px; background: var(--olein); }
+  h1 { margin: 0; font-weight: 500; letter-spacing: -0.03em; line-height: 1.0; text-wrap: balance; }
+  .foot { font-size: 21px; line-height: 28px; color: var(--muted); }
+  .foot b { color: var(--kernel); font-weight: 600; }
+
+  /* Home: the hero film's poster under the tested Deep shade */
+  .home { background: var(--deep) url("../../public/assets/video/darby-hero-poster.jpg") center / cover; }
+  .home .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(19,42,34,.90) 0%, rgba(19,42,34,.82) 55%, rgba(19,42,34,.45) 82%, rgba(19,42,34,.30) 100%); }
+  .home .inner { position: relative; width: 100%; padding: 64px 72px 60px; display: flex; flex-direction: column; justify-content: space-between; }
+  .home .stack { display: flex; flex-direction: column; gap: 26px; max-width: 820px; }
+  .home h1 { font-size: 92px; }
+  .home .equator { width: 600px; }
+
+  /* Division and contact: Frond text column beside an image panel */
+  .split .text { flex: 0 0 690px; padding: 64px 56px 60px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  .split .stack { display: flex; flex-direction: column; gap: 24px; }
+  .split h1 { font-size: 72px; line-height: 1.02; }
+  .split .media { flex: 1; position: relative; overflow: hidden; background: var(--deep); }
+  .split .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .split .media .tag { position: absolute; left: 32px; bottom: 30px; padding: 10px 16px; background: rgba(19,42,34,.88); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  const WORDMARK = (h, ground) => `<svg width="${Math.round(h * 5445 / 837)}" height="${h}" viewBox="-550 -767 5445.0 837" style="display:block;align-self:flex-start;flex:none"><rect x="-550" y="-370" width="5445" height="42" fill="#D9A13B"/><path d="M75 0V-697H271Q443 -697 537.5 -604.5Q632 -512 632 -343Q632 -177 538.5 -88.5Q445 0 270 0ZM177 -94H261Q346 -94 406.0 -118.0Q466 -142 497.5 -198.0Q529 -254 529 -347Q529 -439 498.0 -495.5Q467 -552 409.0 -577.5Q351 -603 270 -603H177Z M993.0 0 1264.0 -697H1343.0L1613.0 0H1502.0L1304.0 -549L1105.0 0ZM1153.0 -155 1184.0 -246H1422.0L1456.0 -155Z M2003.0 0V-697H2218.0Q2300.0 -697 2351.5 -673.0Q2403.0 -649 2427.5 -604.5Q2452.0 -560 2452.0 -499Q2452.0 -409 2400.5 -358.0Q2349.0 -307 2252.0 -299Q2235.0 -298 2213.0 -298.0Q2191.0 -298 2172.0 -298H2105.0V0ZM2389.0 0 2210.0 -310 2314.0 -323 2506.0 0ZM2105.0 -388H2208.0Q2250.0 -388 2281.5 -398.5Q2313.0 -409 2332.0 -433.0Q2351.0 -457 2351.0 -498Q2351.0 -539 2332.0 -562.5Q2313.0 -586 2281.0 -596.0Q2249.0 -606 2208.0 -606H2105.0Z M2906.0 0V-697H3136.0Q3237.0 -697 3294.5 -651.0Q3352.0 -605 3352.0 -522Q3352.0 -472 3330.0 -433.5Q3308.0 -395 3268.0 -374Q3328.0 -356 3358.0 -311.5Q3388.0 -267 3388.0 -199Q3388.0 -105 3329.0 -52.5Q3270.0 0 3163.0 0ZM3008.0 -94H3156.0Q3287.0 -94 3287.0 -204Q3287.0 -257 3256.5 -286.0Q3226.0 -315 3171.0 -315H3008.0ZM3008.0 -406H3148.0Q3194.0 -406 3222.5 -433.0Q3251.0 -460 3251.0 -507Q3251.0 -553 3221.0 -578.0Q3191.0 -603 3136.0 -603H3008.0Z M3990.0 0V-270L3744.0 -697H3860.0L4038.0 -372L4220.0 -697H4335.0L4092.0 -270V0Z" fill="#F3EDE2" stroke="${ground}" stroke-width="104" stroke-linejoin="round" paint-order="stroke"/></svg>`;
+
+  const cards = {
+    home: () => `<div class="card home"><div class="shade"></div><div class="inner">
+      ${WORDMARK(40, '#1E3B2F')}
+      <div class="stack">
+        <span class="label">Palm specialists since 1992</span>
+        <h1>Palm, refined for feed and food.</h1>
+        <div class="equator"><span class="deg">0°</span><span class="line"></span><span class="label">Malaysia · Indonesia</span></div>
+        <span class="foot">Bypass fats for dairy and beef · Specialty fats for bakery and confectionery</span>
+      </div></div></div>`,
+    division: ({ name, headline, foot, image, tag }) => `<div class="card split">
+      <div class="text">
+        ${WORDMARK(36, '#1E3B2F')}
+        <div class="stack">
+          <span class="label" style="color:#D9A13B">${name}</span>
+          <h1>${headline}</h1>
+          <div class="equator"><span class="deg" style="color:#D9A13B">0°</span><span class="line"></span></div>
+          <span class="foot">${foot}</span>
+        </div>
+      </div>
+      <div class="media"><img src="${image}" alt=""><span class="tag label" style="font-size:14px">${tag}</span></div>
+    </div>`,
+  };
+
+  const params = new URLSearchParams(location.search);
+  const kind = params.get('kind');
+  const data = JSON.parse(params.get('data') || '{}');
+  document.getElementById('root').innerHTML = cards[kind](data);
+</script>
+</body>
+</html>

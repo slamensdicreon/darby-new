@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroFilm } from "@/components/HeroFilm";
 import { ButtonLink, Equator } from "@/components/ui";
 import { getCategories, getProducts, pluralProducts, type DivisionName } from "@/lib/products";
+import { homeSeo, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata(homeSeo);
 
 const POSTER = "/assets/video/darby-hero-poster.jpg";
 

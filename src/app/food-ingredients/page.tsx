@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { ogImages, pageMetadata } from "@/lib/seo";
 import { DivisionPage } from "@/components/DivisionPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Food Ingredients | Darby",
   description:
     "Margarines, shortenings, compound chocolate fats and specialty oils for industrial bakery, confectionery and food manufacturing.",
-  alternates: { canonical: "/food-ingredients" },
-  openGraph: { title: "Food Ingredients | Darby", url: "/food-ingredients" },
-};
+  path: "/food-ingredients",
+  image: ogImages.foodIngredients,
+});
 
 export default function FoodIngredientsPage() {
   return (

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import { ogImages, pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { Breadcrumb, Equator } from "@/components/ui";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy policy | Darby",
-  description: "How Darby Trading Inc. collects, uses and protects the information you share through darbyinc.com.",
-  alternates: { canonical: "/privacy-policy" },
-};
+  description:
+    "How Darby Trading Inc. collects, uses and protects the information you share through darbyinc.com, and the choices you have.",
+  path: "/privacy-policy",
+  image: ogImages.home,
+});
 
 /*
  * DRAFT — open item #7. Written to describe what this site actually does (two forms, no

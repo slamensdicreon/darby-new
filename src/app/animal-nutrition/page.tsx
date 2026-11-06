@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { ogImages, pageMetadata } from "@/lib/seo";
 import { DivisionPage } from "@/components/DivisionPage";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Animal Nutrition | Darby",
   description:
     "High-C16 palmitic fats, calcium salts and minerals for dairy and beef cattle, from RSPO-certified palm and stocked at six U.S. ports.",
-  alternates: { canonical: "/animal-nutrition" },
-  openGraph: { title: "Animal Nutrition | Darby", url: "/animal-nutrition" },
-};
+  path: "/animal-nutrition",
+  image: ogImages.animalNutrition,
+});
 
 export default function AnimalNutritionPage() {
   return (

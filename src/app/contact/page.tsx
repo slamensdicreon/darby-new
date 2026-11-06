@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { ogImages, pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { Breadcrumb } from "@/components/ui";
 import { site, warehouses } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact | Darby",
   description:
     "Talk to a Darby palm specialist about specifications, pricing and availability. 6 Maple Ave, Armonk, NY 10504. +1 914 701 0003.",
-  alternates: { canonical: "/contact" },
-  openGraph: { title: "Contact | Darby", url: "/contact" },
-};
+  path: "/contact",
+  image: ogImages.contact,
+});
 
 export default function ContactPage() {
   return (

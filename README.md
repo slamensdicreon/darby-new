@@ -45,7 +45,21 @@ Notes:
 | `/privacy-policy` | Legal page (draft, see below) | not designed; follows the system |
 | 404 | Not-found page | not designed; follows the system |
 
-Also: `sitemap.xml`, `robots.txt`, Organization JSON-LD, per-page titles and descriptions from the build spec, and a favicon (`src/app/icon.svg`).
+Also: `sitemap.xml`, `robots.txt`, Organization JSON-LD, a favicon (`src/app/icon.svg`) and an Apple touch icon.
+
+## Titles, descriptions and share images
+
+Every page builds its metadata with `pageMetadata()` in `src/lib/seo.ts`: title, description, canonical URL, Open Graph and Twitter tags, and a 1200×630 share image with alt text. Use the helper for any new page, because Next.js replaces a parent's `openGraph` object instead of merging it.
+
+| Page | Title | Share image |
+|---|---|---|
+| Home | Darby \| Palm fats for feed and food | `public/og/darby-home.jpg` |
+| Animal Nutrition | Animal Nutrition \| Darby | `public/og/darby-animal-nutrition.jpg` |
+| Food Ingredients | Food Ingredients \| Darby | `public/og/darby-food-ingredients.jpg` |
+| Contact | Contact \| Darby | `public/og/darby-contact.jpg` |
+| Privacy policy | Privacy policy \| Darby | home image |
+
+Titles and descriptions follow the build spec, except Home's description, shortened from 182 to 150 characters so search results show it in full. The share images are rendered from `scripts/og/template.html`; after changing their copy, imagery or the product counts on them, run `node scripts/og/generate.cjs` (needs Playwright with Chromium). Check a deployed URL with a share debugger, such as LinkedIn's Post Inspector, before announcing the site.
 
 ## How it is built
 
