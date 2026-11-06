@@ -10,7 +10,29 @@ npm run dev        # http://localhost:3000
 npm run build && npm start
 ```
 
-Node 20.9 or later. Copy `.env.example` to `.env.local` to configure the site URL and form destinations.
+Node 22 (see `.nvmrc`). Copy `.env.example` to `.env.local` to configure the site URL and form destinations.
+
+## Deploy on Vercel
+
+The repo deploys to Vercel with no extra configuration: Vercel detects Next.js, runs `npm install` and `next build`, and serves the API routes as functions. `main` is the production branch; other branches get preview deployments.
+
+1. In Vercel, **Add New → Project**, import `slamensdicreon/darby-new`. Leave the framework (Next.js), build command and output directory on their defaults.
+2. Under **Settings → Git**, confirm the production branch is `main`.
+3. Under **Settings → Environment Variables**, add for Production (and Preview if wanted):
+
+   | Variable | Value |
+   |---|---|
+   | `NEXT_PUBLIC_SITE_URL` | `https://darbyinc.com` once the domain is attached. Until then leave it unset and the `*.vercel.app` production domain is used for canonical URLs and the sitemap. |
+   | `CONTACT_WEBHOOK_URL` | Where contact form submissions are POSTed as JSON |
+   | `SPEC_WEBHOOK_URL` | Where spec requests are POSTed as JSON |
+
+   Redeploy after changing them; `NEXT_PUBLIC_SITE_URL` is read at build time.
+4. **Domain cutover:** under **Settings → Domains**, add `darbyinc.com` and `www.darbyinc.com` (redirect `www` to the apex), then update DNS at the registrar as Vercel instructs. The WordPress 301s in `next.config.ts` take effect as soon as DNS points at Vercel.
+
+Notes:
+- Preview deployments send `noindex` and a disallow-all `robots.txt`, so only production is indexed.
+- Without webhook URLs, submissions appear only in the project's **Logs** (search for `[forms]`).
+- Product and poster images use Vercel Image Optimization, which counts toward the plan's image quota. The hero film is served as a static file.
 
 ## Pages
 

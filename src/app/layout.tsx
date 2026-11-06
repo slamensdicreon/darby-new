@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   formatDetection: { telephone: false, email: false, address: false },
+  robots: site.indexable ? undefined : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

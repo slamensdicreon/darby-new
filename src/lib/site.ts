@@ -2,7 +2,18 @@
 export const site = {
   name: "Darby",
   legalName: "Darby Trading Inc.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://darbyinc.com").replace(/\/$/, ""),
+  /**
+   * Canonical origin for metadata, sitemap and structured data. Set NEXT_PUBLIC_SITE_URL in
+   * Vercel once darbyinc.com points at the project; until then the project's production
+   * domain (provided by Vercel at build time) is used.
+   */
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+    "https://darbyinc.com"
+  ).replace(/\/$/, ""),
+  /** Only the production deployment may be indexed; Vercel previews are kept out of search. */
+  indexable: !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production",
   phone: { display: "+1 914 701 0003", href: "tel:+19147010003" },
   email: { display: "info@darbyinc.com", href: "mailto:info@darbyinc.com" },
   address: {

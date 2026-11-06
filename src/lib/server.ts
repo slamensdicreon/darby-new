@@ -1,8 +1,10 @@
 import "server-only";
 
 /**
- * Simple fixed-window rate limiter, per IP and route. In-memory, so it applies per
- * server instance; swap for a shared store (Vercel KV, Upstash, Redis) if needed.
+ * Simple fixed-window rate limiter, per IP and route. In-memory, so on Vercel it applies
+ * per function instance (instances are reused while warm). It stops casual repeat
+ * submissions; for a hard limit, back it with a shared store such as Upstash Redis
+ * from the Vercel Marketplace.
  */
 const hits = new Map<string, { count: number; reset: number }>();
 
@@ -19,6 +21,7 @@ export function rateLimited(key: string, limit = 5, windowMs = 10 * 60 * 1000) {
 }
 
 export function clientIp(req: Request) {
+  // Vercel sets x-forwarded-for to the real client IP.
   const fwd = req.headers.get("x-forwarded-for");
   return (fwd ? fwd.split(",")[0] : req.headers.get("x-real-ip"))?.trim() || "unknown";
 }
