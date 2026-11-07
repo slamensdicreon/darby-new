@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ProductCatalog } from "./ProductCatalog";
 import { SpecForm } from "./SpecForm";
 import { Breadcrumb, ButtonLink, Equator } from "./ui";
-import { getCategories, getProducts, numberWord, pluralProducts, productImage, type DivisionName } from "@/lib/products";
+import { getCategories, getProducts, numberWord, productImage, type DivisionName } from "@/lib/products";
 import { site } from "@/lib/site";
 import { interestSlug } from "@/lib/validation";
 
@@ -73,14 +73,11 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof, her
             </div>
           ) : (
             <div className="dpanel dpanel--cats" data-reveal="2">
-              <span className="label label--olein">
-                {products.length} products in {numberWord(categories.length)} categories
-              </span>
+              <span className="label label--olein">{numberWord(categories.length)} categories</span>
               <ul className="dcats">
                 {categories.map((c) => (
                   <li key={c.name} className="dcats__row">
                     <span className="dcats__name">{c.name}</span>
-                    <span className="dcats__count">{pluralProducts(c.count)}</span>
                   </li>
                 ))}
               </ul>

@@ -20,7 +20,7 @@ const cards = [
     data: {
       name: "Animal Nutrition",
       headline: "High-C16 palm fats for dairy and beef rations.",
-      foot: "<b>10 products</b> · Palmitic fats · Calcium salts · Minerals",
+      foot: "Palmitic fats · Calcium salts · Minerals",
       image: img("assets/products/calcium-salt.webp"),
       tag: "Calcium Salt",
     },
@@ -31,7 +31,7 @@ const cards = [
     data: {
       name: "Food Ingredients",
       headline: "Specialty fats for bakery and confectionery.",
-      foot: "<b>13 products</b> · Bakery · Confectionery · Frying · Specialty",
+      foot: "Bakery · Confectionery · Frying · Specialty",
       image: img("assets/products/gold-margarine-premium.webp"),
       tag: "Gold Margarine Premium",
     },
@@ -42,7 +42,7 @@ const cards = [
     data: {
       name: "Personal Care",
       headline: "Esters and triglycerides for personal care.",
-      foot: "<b>3 products</b> · Esters · Triglycerides",
+      foot: "Esters · Triglycerides",
       image: img("assets/products/darby-ipm.webp"),
       tag: "Darby IPM",
     },

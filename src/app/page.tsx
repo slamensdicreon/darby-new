@@ -159,8 +159,8 @@ export default function HomePage() {
             <span className="stat__label">Divisions from one certified origin</span>
           </div>
           <div className="stat" data-reveal="4">
-            <StatCounter value={all.length} />
-            <span className="stat__label">Products, with specifications on request</span>
+            <StatCounter value={offices.length} />
+            <span className="stat__label">Offices, in New York and Thailand</span>
           </div>
         </div>
       </section>
@@ -302,10 +302,11 @@ export default function HomePage() {
               <span className="tile__icon">
                 <Icon.document />
               </span>
-              <span className="tile__value">{all.length}</span>
-              <span className="tile__title">Specified products</span>
+              <span className="tile__value">Halal</span>
+              <span className="tile__title">Certified production</span>
               <span className="tile__text">
-                Every grade documented, with full specification sheets sent on request from the team in Armonk.
+                Food Ingredients carry Halal certification with FSSC 22000 or ISO 9001:2015, listed on every product
+                card, and full specification sheets are sent on request.
               </span>
             </div>
           </div>

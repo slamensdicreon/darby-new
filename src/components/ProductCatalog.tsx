@@ -46,10 +46,10 @@ export function ProductCatalog({
         <div className="catalog__title-group">
           <h2 className="h-block">{title}</h2>
         </div>
-        <span className="catalog__count" aria-live="polite">
-          Showing {shown} {shown === 1 ? "product" : "products"}
-        </span>
       </div>
+      <p className="sr-only" aria-live="polite">
+        Showing {shown} {shown === 1 ? "product" : "products"}
+      </p>
       <div role="group" aria-label="Filter by type" className="filters filters--scroll">
         {[ALL, ...categories.map((c) => c.name)].map((cat) => (
           <button
