@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroFilm } from "@/components/HeroFilm";
 import { ButtonLink, Equator } from "@/components/ui";
-import { getCategories, pluralProducts, type DivisionName } from "@/lib/products";
+import { getCategories, pluralProducts, productImage, type DivisionName } from "@/lib/products";
 import { homeSeo, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -32,8 +32,8 @@ const divisions: {
   {
     name: "Personal Care",
     href: "/personal-care",
-    image: "/assets/products/hydro-palm-flakes.webp",
-    text: "Palm-based ingredients for personal care and cosmetic formulations, from the same RSPO-certified origin and the same U.S. warehouses.",
+    image: "/assets/products/darby-ipm.webp",
+    text: "Emollient esters and medium-chain triglycerides for skin care, color cosmetics and topical pharmaceutical formulations.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function HomePage() {
                   <Link href={d.href} tabIndex={-1} aria-hidden="true" className="division-row__media">
                     <Image
                       className="pimg"
-                      src={d.image}
+                      src={productImage(d.image)}
                       alt=""
                       fill
                       sizes="(min-width: 1000px) 640px, 100vw"

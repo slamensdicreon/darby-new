@@ -5,7 +5,7 @@ import { DivisionPage } from "@/components/DivisionPage";
 export const metadata: Metadata = pageMetadata({
   title: "Personal Care | Darby",
   description:
-    "Palm-based ingredients for personal care and cosmetic formulations, from RSPO-certified producers and stocked at six U.S. ports.",
+    "Isopropyl myristate, isopropyl palmitate and medium-chain triglycerides for skin care, cosmetics and topical pharmaceutical formulations, stocked at six U.S. ports.",
   path: "/personal-care",
   image: ogImages.personalCare,
 });
@@ -19,7 +19,7 @@ export default function PersonalCarePage() {
   return (
     <DivisionPage
       division="Personal Care"
-      standfirst="Palm-based ingredients for personal care and cosmetic formulations, refined to consistent specifications and sourced from RSPO-certified producers."
+      standfirst="Emollient esters and medium-chain triglycerides for skin care, color cosmetics and topical pharmaceutical formulations, refined to consistent specifications."
       panel="rspo"
       nameSize={24}
       proof={[

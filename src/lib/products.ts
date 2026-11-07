@@ -26,6 +26,13 @@ export type Product = {
 
 export type CategoryCount = { name: string; count: number };
 
+/**
+ * Bump when product image files change in place. The version becomes part of the image
+ * URL, so Vercel's image CDN serves the new files instead of its cached optimizations.
+ */
+export const PRODUCT_IMAGE_VERSION = "2";
+export const productImage = (path: string) => `${path}?v=${PRODUCT_IMAGE_VERSION}`;
+
 const products = (catalog as Product[]).slice().sort((a, b) => a.sort_order - b.sort_order);
 
 export function getProducts(division: DivisionName): Product[] {

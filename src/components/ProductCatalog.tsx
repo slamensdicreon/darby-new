@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { CategoryCount, Product } from "@/lib/products";
+import { productImage, type CategoryCount, type Product } from "@/lib/products";
 import { ArrowIcon, DisplayName } from "./ui";
 
 export const SPEC_PRODUCT_EVENT = "darby:spec-product";
@@ -74,7 +74,7 @@ export function ProductCatalog({
             <div className="card__media">
               <Image
                 className="pimg"
-                src={p.image}
+                src={productImage(p.image)}
                 alt={`${p.name === p.display_name ? p.name : p.display_name}, close-up`}
                 fill
                 sizes="(min-width: 1156px) 290px, (min-width: 860px) 33vw, (min-width: 568px) 50vw, 100vw"
@@ -89,7 +89,11 @@ export function ProductCatalog({
               </h3>
               <span className="card__subtitle">{p.subtitle}</span>
               <p className="card__desc">{p.description}</p>
-              {p.composition ? <p className="card__composition">{p.composition}</p> : null}
+              {p.composition ? (
+                <p className="card__composition">
+                  <DisplayName value={p.composition} />
+                </p>
+              ) : null}
               {p.certifications.length > 0 ? (
                 <p className="card__certs">
                   <span className="card__certs-label">Certified</span>

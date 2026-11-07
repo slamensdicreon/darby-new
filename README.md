@@ -111,10 +111,12 @@ After reviewing the reference sites the client sent (Waxian, Global Agri-Trade, 
 - **Product detail.** Each Food Ingredients card now carries a composition line and certification chips (Halal, FSSC 22000, ISO 9001:2015), taken from the product pages on the current darbyinc.com (`composition` and `certifications` in `products.json`). Animal Nutrition products have no such data on the current site; add the fields when Darby supplies them.
 - **"Who we supply"** band on the home page, naming the customer types for each division.
 - **Sales line in the header** on screens 1200px and wider.
+- **Image edges trimmed.** Every handover product image had 3 black pixel columns on the left and 2 on the right, which showed as a hairline border on the site (and in the prototype). All 23 were trimmed and re-encoded at 1200×900. Product image URLs carry `?v=N` (`PRODUCT_IMAGE_VERSION` in `src/lib/products.ts`); bump it whenever image files change in place, so Vercel's image cache refreshes.
+- **Personal Care products** (Darby IPM, Darby IPP, Darby MCT) added from the client's product information, with two generated placeholder images to the design-system brief (close-up liquid, no containers) and the existing MCT image reused. Approval needed, as for the other 23.
 - **Eyebrow labels removed** wherever they only restated the heading beneath them (hero, section intros, catalog, spec form, warehouses, share images). Labels that carry information stay: card categories and certifications, the Sales/Email/Visit field labels, the coast and office groups, the C16 and RSPO panel titles.
 
 Still needed from Darby:
-- **Personal Care products:** names, categories, descriptions and images, to the brief in the design system. The division copy on the home page and its page is placeholder until then.
+- **Personal Care images:** approve the two generated placeholders (IPM, IPP) or replace them with photography. Certifications for the three Personal Care products, if any.
 - **Thailand office:** city and address. The map star is on Bangkok as a placeholder.
 - Confirm the new headlines, the Personal Care wording and the "Who we supply" customer types.
 - Composition and certifications for the ten Animal Nutrition products, and which certifications apply to which plants, for a certifications line on the division pages.

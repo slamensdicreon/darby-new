@@ -14,7 +14,7 @@ export const ogImages = {
   },
   personalCare: {
     url: "/og/darby-personal-care.jpg",
-    alt: "Darby Personal Care: palm-based ingredients for personal care and cosmetics.",
+    alt: "Darby Personal Care: esters and triglycerides for personal care.",
   },
   contact: { url: "/og/darby-contact.jpg", alt: "Talk to the Darby team. Sales +1 914 557 0514." },
 } as const;

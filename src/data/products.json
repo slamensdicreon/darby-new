@@ -402,5 +402,53 @@
       "Halal",
       "ISO 9001:2015"
     ]
+  },
+  {
+    "division": "Personal Care",
+    "spec_sheet": null,
+    "certifications": [],
+    "image_source": "AI-generated placeholder (Higgsfield, GPT Image 2.6), to the design-system photography brief",
+    "image_status": "Needs client approval or replacement with studio photography",
+    "slug": "darby-ipm",
+    "name": "Darby IPM",
+    "display_name": "Darby IPM",
+    "category": "Esters",
+    "subtitle": "Isopropyl myristate",
+    "description": "For lotions, creams, foundations, primers, aftershaves, and topical pharmaceutical creams, gels and ointments.",
+    "composition": "A low-viscosity synthetic ester of isopropyl alcohol and myristic acid, a C14 saturated fatty acid typically sourced from vegetable oils. A clear, colorless, nearly odorless liquid with a light, non-greasy, fast-absorbing feel. Improves spreadability, reduces tack in heavier formulations and acts as a carrier that helps actives penetrate the skin.",
+    "image": "/assets/products/darby-ipm.webp",
+    "sort_order": 24
+  },
+  {
+    "division": "Personal Care",
+    "spec_sheet": null,
+    "certifications": [],
+    "image_source": "AI-generated placeholder (Higgsfield, GPT Image 2.6), to the design-system photography brief",
+    "image_status": "Needs client approval or replacement with studio photography",
+    "slug": "darby-ipp",
+    "name": "Darby IPP",
+    "display_name": "Darby IPP",
+    "category": "Esters",
+    "subtitle": "Isopropyl palmitate",
+    "description": "For creams, lotions, sunscreens, makeup, pressed powders and lipsticks.",
+    "composition": "A synthetic ester of isopropyl alcohol and palmitic acid (C₁₉H₃₈O₂), a saturated fatty acid commonly derived from plant oils. A clear, colorless, odorless oily liquid with a silky, non-greasy, fast-absorbing texture; insoluble in water and miscible with oils, mineral oil, silicones and alcohols. Emollient, spreading and penetration enhancer, fragrance solvent and binder.",
+    "image": "/assets/products/darby-ipp.webp",
+    "sort_order": 25
+  },
+  {
+    "division": "Personal Care",
+    "spec_sheet": null,
+    "certifications": [],
+    "image_source": "Same image as the Food Ingredients MCT listing",
+    "image_status": "Needs client approval or replacement with studio photography",
+    "slug": "darby-mct",
+    "name": "Darby MCT",
+    "display_name": "Darby MCT",
+    "category": "Triglycerides",
+    "subtitle": "Medium-chain triglycerides",
+    "description": "A carrier and emollient for cosmetics, pharmaceutical formulations, and food and nutritional products.",
+    "composition": "A triglyceride ester formed from a glycerol backbone and medium-chain fatty acids, primarily caprylic (C8) and capric (C10) acids. A clear, light, low-viscosity, virtually odorless and tasteless oil with good oxidative stability that is easily metabolized.",
+    "image": "/assets/products/medium-chain-triglyceride.webp",
+    "sort_order": 26
   }
 ]

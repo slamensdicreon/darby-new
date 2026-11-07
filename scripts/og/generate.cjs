@@ -41,10 +41,10 @@ const cards = [
     kind: "division",
     data: {
       name: "Personal Care",
-      headline: "Palm-based ingredients for personal care.",
-      foot: "<b>RSPO-certified origin</b> · Specifications on request",
-      image: img("assets/products/hydro-palm-flakes.webp"),
-      tag: "Hydro Palm Flakes",
+      headline: "Esters and triglycerides for personal care.",
+      foot: "<b>3 products</b> · Esters · Triglycerides",
+      image: img("assets/products/darby-ipm.webp"),
+      tag: "Darby IPM",
     },
   },
   {
