@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ogImages, pageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/ContactForm";
-import { NetworkMap } from "@/components/NetworkMap";
+import { GlobalPresence } from "@/components/GlobalPresence";
 import { Breadcrumb } from "@/components/ui";
 import { offices, site, warehouses } from "@/lib/site";
 
@@ -81,11 +81,11 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="network__map">
-            <NetworkMap />
+          <div data-reveal>
+            <GlobalPresence />
           </div>
 
-          <div className="network__legend">
+          <div className="network__legend" data-reveal>
             {warehouses.map((w) => (
               <div key={w.coast} className="coast">
                 <span className="label label--gold">{w.coast}</span>

@@ -16,6 +16,7 @@ export default function AnimalNutritionPage() {
       division="Animal Nutrition"
       standfirst="Palm fats and calcium salts for dairy and beef cattle, crafted and refined over 30 years for high digestibility, high energy content and herd health."
       panel="c16"
+      heroImage="/assets/products/ultra-cal-60.webp"
       nameSize={28}
       proof={[
         { title: "RSPO-certified origin", text: "Sourced from vetted producers in Malaysia and Indonesia." },

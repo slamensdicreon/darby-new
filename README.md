@@ -97,6 +97,14 @@ Set `CONTACT_WEBHOOK_URL` and `SPEC_WEBHOOK_URL` to receive each submission as a
 
 `next.config.ts` holds 301s mapped from the live site's sitemaps and REST API: every page, category and all 24 product posts (each lands on its product card). Trailing-slash URLs redirect in one hop.
 
+## Richer pages (November 2026)
+
+The client asked for a more feature- and visual-rich site, referencing waxianinternational.com. Added, all from Darby's own content:
+- Home: stats strip with counting numbers; numbered division rows; "From the catalog" product carousel; four-step delivery process with line icons; Why Darby as icon tiles; "Where we are" with the network map and region toggles; certifications strip; common-questions accordion.
+- Division pages: a product close-up under the brand shade behind the hero.
+- Reveal-on-scroll motion on sections (`data-reveal`, `src/components/Reveal.tsx`), which the handover's design system had ruled out; it is off under `prefers-reduced-motion` and without JavaScript.
+- Deliberately not copied: stock photography, claimed figures that Darby has not supplied, a blog, logo walls and third-party feeds.
+
 ## Client feedback round 1 (November 2026)
 
 Applied:

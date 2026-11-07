@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { ProductCatalog } from "./ProductCatalog";
 import { SpecForm } from "./SpecForm";
 import { Breadcrumb, ButtonLink, Equator } from "./ui";
-import { getCategories, getProducts, numberWord, pluralProducts, type DivisionName } from "@/lib/products";
+import { getCategories, getProducts, numberWord, pluralProducts, productImage, type DivisionName } from "@/lib/products";
 import { site } from "@/lib/site";
 import { interestSlug } from "@/lib/validation";
 
@@ -13,18 +14,24 @@ export type DivisionConfig = {
   /** Card name size in px; the prototype uses 28 (Animal Nutrition) and 22 (Food Ingredients). */
   nameSize: number;
   proof: { title: string; text: string }[];
+  /** Product close-up shown faintly behind the hero, under the brand shade. */
+  heroImage: string;
 };
 
 /** Division template (build spec 4): hero, catalog, proof strip, spec request. */
-export function DivisionPage({ division, standfirst, panel, nameSize, proof }: DivisionConfig) {
+export function DivisionPage({ division, standfirst, panel, nameSize, proof, heroImage }: DivisionConfig) {
   const products = getProducts(division);
   const categories = getCategories(division);
 
   return (
     <>
       <section className="dhero" aria-labelledby="division-h">
+        <div className="dhero__bg" aria-hidden="true">
+          <Image src={productImage(heroImage)} alt="" fill preload sizes="100vw" quality={75} />
+          <div className="dhero__shade" />
+        </div>
         <div className="container dhero__inner">
-          <div className="dhero__text">
+          <div className="dhero__text" data-reveal>
             <Breadcrumb current={division} />
             <h1 id="division-h" className="h-page">
               {division}
@@ -42,7 +49,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
           </div>
 
           {panel === "c16" ? (
-            <div className="dpanel dpanel--c16">
+            <div className="dpanel dpanel--c16" data-reveal="2">
               <span className="label label--olein">The fatty acid that matters</span>
               <div className="c16" aria-hidden="true">
                 <div className="c16__line" />
@@ -53,7 +60,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
               </p>
             </div>
           ) : panel === "rspo" ? (
-            <div className="dpanel dpanel--c16">
+            <div className="dpanel dpanel--c16" data-reveal="2">
               <span className="label label--olein">The same certified origin</span>
               <div className="c16" aria-hidden="true">
                 <div className="c16__line" />
@@ -65,7 +72,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
               </p>
             </div>
           ) : (
-            <div className="dpanel dpanel--cats">
+            <div className="dpanel dpanel--cats" data-reveal="2">
               <span className="label label--olein">
                 {products.length} products in {numberWord(categories.length)} categories
               </span>
@@ -115,8 +122,8 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
 
       <section className="strip" aria-label={`Why Darby ${division}`}>
         <div className="container strip__inner">
-          {proof.map((p) => (
-            <div key={p.title} className="strip__item">
+          {proof.map((p, i) => (
+            <div key={p.title} className="strip__item" data-reveal={String(i + 1)}>
               <span className="strip__title">{p.title}</span>
               <span className="strip__text">{p.text}</span>
             </div>
@@ -126,7 +133,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
 
       <section id="specs" className="specs" aria-labelledby="specs-h">
         <div className="container specs__inner">
-          <div className="specs__head">
+          <div className="specs__head" data-reveal>
             <h2 id="specs-h" className="h-block">
               Get the full specifications.
             </h2>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { RevealObserver } from "@/components/Reveal";
 import { homeSeo, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "@/styles/tokens.css";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <RevealObserver />
         <Header />
         <main id="main" tabIndex={-1}>
           {children}

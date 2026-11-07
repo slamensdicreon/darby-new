@@ -21,6 +21,7 @@ export default function PersonalCarePage() {
       division="Personal Care"
       standfirst="Emollient esters and medium-chain triglycerides for skin care, color cosmetics and topical pharmaceutical formulations, refined to consistent specifications."
       panel="rspo"
+      heroImage="/assets/products/darby-ipp.webp"
       nameSize={24}
       proof={[
         { title: "RSPO-certified origin", text: "Sourced from vetted producers in Malaysia and Indonesia." },

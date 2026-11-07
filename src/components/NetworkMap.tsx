@@ -47,7 +47,10 @@ function labelProps(l: Loc) {
  * The Darby network: six U.S. warehouses, the Armonk headquarters and the Thailand office,
  * with the equator and the Malaysian and Indonesian origin marked in Olein.
  */
-export function NetworkMap() {
+export type Region = "us" | "asia";
+const regionOf = (l: Loc): Region => (l.point[0] < 600 ? "us" : "asia");
+
+export function NetworkMap({ region = null }: { region?: Region | null }) {
   const [vx, vy, vw, vh] = data.viewBox;
   const [[ex0], [ex1]] = data.equator;
   const eqY = data.equator[0][1];
@@ -67,7 +70,7 @@ export function NetworkMap() {
       <desc id="netmap-desc">{desc}</desc>
       <path className="netmap__land" d={data.land} />
       <line className="netmap__equator" x1={ex0} x2={ex1} y1={eqY} y2={eqY} />
-      <text className="netmap__origin" x={data.origin.point[0]} y={eqY - 9} textAnchor="middle">
+      <text className={`netmap__origin${region === "us" ? " netmap__origin--dim" : ""}`} x={data.origin.point[0]} y={eqY - 9} textAnchor="middle">
         {data.origin.name}
       </text>
       <text className="netmap__origin netmap__origin--deg" x={vx + 14} y={eqY - 6}>
@@ -76,7 +79,11 @@ export function NetworkMap() {
       {data.locations.map((l) => {
         const lp = labelProps(l);
         return (
-          <g key={l.id} className={`netmap__loc netmap__loc--${l.kind}`} transform={`translate(${l.point[0]} ${l.point[1]})`}>
+          <g
+            key={l.id}
+            className={`netmap__loc netmap__loc--${l.kind}${region && regionOf(l) !== region ? " netmap__loc--dim" : ""}`}
+            transform={`translate(${l.point[0]} ${l.point[1]})`}
+          >
             <circle className="netmap__halo" r={13} />
             <polygon className="netmap__star" points={star(l.kind === "office" ? 9 : 7.5)} />
             <text className="netmap__label" {...lp}>

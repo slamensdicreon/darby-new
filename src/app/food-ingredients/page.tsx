@@ -16,6 +16,7 @@ export default function FoodIngredientsPage() {
       division="Food Ingredients"
       standfirst="Specialty fats for industrial bakery, confectionery and culinary applications, developed for quality extraction, texture and taste."
       panel="categories"
+      heroImage="/assets/products/choch-9503.webp"
       nameSize={22}
       proof={[
         { title: "RSPO-certified origin", text: "Sourced from vetted producers in Malaysia and Indonesia." },
