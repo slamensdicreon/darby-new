@@ -46,6 +46,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75, 85],
+    // Local images live under /assets; a query string (?v=N) versions them for the CDN cache.
+    localPatterns: [{ pathname: "/assets/**" }],
   },
   async redirects() {
     // `{/}?` accepts the trailing slash every WordPress URL had.
