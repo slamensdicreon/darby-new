@@ -44,7 +44,6 @@ export function ProductCatalog({
     <>
       <div className="catalog__head">
         <div className="catalog__title-group">
-          <span className="label label--gold">The product line</span>
           <h2 className="h-block">{title}</h2>
         </div>
         <span className="catalog__count" aria-live="polite">

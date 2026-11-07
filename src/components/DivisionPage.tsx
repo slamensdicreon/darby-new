@@ -93,7 +93,6 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
           ) : (
             <div className="catalog__pending">
               <div className="catalog__title-group">
-                <span className="label label--gold">The product line</span>
                 <h2 className="h-block">The {division} range, on request.</h2>
               </div>
               <p className="body-lg catalog__pending-text">
@@ -127,7 +126,6 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
       <section id="specs" className="specs" aria-labelledby="specs-h">
         <div className="container specs__inner">
           <div className="specs__head">
-            <span className="label label--olein">Product specifications</span>
             <h2 id="specs-h" className="h-block">
               Get the full specifications.
             </h2>

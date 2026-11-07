@@ -43,7 +43,6 @@
     home: () => `<div class="card home"><div class="shade"></div><div class="inner">
       ${WORDMARK(40, '#1E3B2F')}
       <div class="stack">
-        <span class="label">Darby Trading · Since 1992</span>
         <h1>Palm-based ingredients for feed, food and personal care.</h1>
         <div class="equator"><span class="deg">0°</span><span class="line"></span><span class="label">Malaysia · Indonesia</span></div>
         <span class="foot">Animal Nutrition · Food Ingredients · Personal Care · RSPO-certified origin</span>
@@ -52,7 +51,7 @@
       <div class="text">
         ${WORDMARK(36, '#1E3B2F')}
         <div class="stack">
-          <span class="label" style="color:#D9A13B">${name}</span>
+          ${name ? `<span class="label" style="color:#D9A13B">${name}</span>` : ''}
           <h1>${headline}</h1>
           <div class="equator"><span class="deg" style="color:#D9A13B">0°</span><span class="line"></span></div>
           <span class="foot">${foot}</span>

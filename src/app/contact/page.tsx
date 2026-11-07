@@ -71,7 +71,6 @@ export default function ContactPage() {
         <div className="container network__inner">
           <div className="intro-split">
             <div className="intro-split__head">
-              <span className="label label--gold">Warehouses and offices</span>
               <h2 id="ports-h" className="h-section">
                 Stocked on three coasts. Present at origin.
               </h2>

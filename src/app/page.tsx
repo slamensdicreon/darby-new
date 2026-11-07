@@ -15,28 +15,24 @@ const divisions: {
   name: DivisionName;
   href: string;
   image: string;
-  audience: string;
   text: string;
 }[] = [
   {
     name: "Animal Nutrition",
     href: "/animal-nutrition",
     image: "/assets/products/calcium-salt.webp",
-    audience: "For nutritionists and feed mills",
     text: "High-C16 palmitic fats and calcium salts that add energy to dairy and beef rations, formulated for digestibility and herd health.",
   },
   {
     name: "Food Ingredients",
     href: "/food-ingredients",
     image: "/assets/products/gold-margarine-premium.webp",
-    audience: "For bakery and confectionery manufacturers",
     text: "Margarines, shortenings, compound chocolate fats and specialty oils, developed for industrial production and consistent texture and taste.",
   },
   {
     name: "Personal Care",
     href: "/personal-care",
     image: "/assets/products/hydro-palm-flakes.webp",
-    audience: "For personal care and cosmetics manufacturers",
     text: "Palm-based ingredients for personal care and cosmetic formulations, from the same RSPO-certified origin and the same U.S. warehouses.",
   },
 ];
@@ -95,7 +91,6 @@ export default function HomePage() {
         <div className="container hero__content">
           <div className="hero__col">
             <div className="hero__head">
-              <span className="label label--kernel">Darby Trading · Since {site.since}</span>
               <h1 id="hero-h" className="hero__title">
                 Palm-based ingredients for feed, food and personal care.
               </h1>
@@ -127,7 +122,6 @@ export default function HomePage() {
         <div className="container supply__inner">
           <div className="intro-split">
             <div className="intro-split__head">
-              <span className="label label--gold">What we supply</span>
               <h2 id="supply-h" className="h-section">
                 Animal nutrition, food ingredients and personal care.
               </h2>
@@ -153,7 +147,6 @@ export default function HomePage() {
                     />
                   </Link>
                   <div className="division-row__body">
-                    <span className="label label--gold">{d.audience}</span>
                     <h3 className="division-row__title">{d.name}</h3>
                     <p className="body-lg division-row__text">{d.text}</p>
                     {categories.length > 0 ? (
@@ -191,7 +184,6 @@ export default function HomePage() {
         <div className="container customers__inner">
           <div className="intro-split">
             <div className="intro-split__head">
-              <span className="label label--gold">Who we supply</span>
               <h2 id="customers-h" className="h-section">
                 Feed mills, food manufacturers and formulators across North America.
               </h2>
@@ -215,7 +207,6 @@ export default function HomePage() {
       <section id="about" aria-labelledby="about-h" className="proof">
         <div className="container proof__inner">
           <div className="proof__head">
-            <span className="label label--olein">Why Darby</span>
             <h2 id="about-h" className="h-section">
               Thirty years of palm, from plantation to your plant.
             </h2>
@@ -237,11 +228,10 @@ export default function HomePage() {
         <div className="container prompt__inner">
           <div className="prompt__rule">
             <div className="prompt__head">
-              <span className="label label--gold">Contact</span>
               <h2 id="contact-h" className="prompt__title">
                 Talk to the Darby team.
               </h2>
-              <p className="body-lg prompt__text">Specifications, pricing and availability for both divisions.</p>
+              <p className="body-lg prompt__text">Specifications, pricing and availability for all three divisions.</p>
             </div>
             <div className="prompt__actions">
               <ButtonLink href="/contact" variant="frond">

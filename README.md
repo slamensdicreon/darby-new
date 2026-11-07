@@ -111,6 +111,7 @@ After reviewing the reference sites the client sent (Waxian, Global Agri-Trade, 
 - **Product detail.** Each Food Ingredients card now carries a composition line and certification chips (Halal, FSSC 22000, ISO 9001:2015), taken from the product pages on the current darbyinc.com (`composition` and `certifications` in `products.json`). Animal Nutrition products have no such data on the current site; add the fields when Darby supplies them.
 - **"Who we supply"** band on the home page, naming the customer types for each division.
 - **Sales line in the header** on screens 1200px and wider.
+- **Eyebrow labels removed** wherever they only restated the heading beneath them (hero, section intros, catalog, spec form, warehouses, share images). Labels that carry information stay: card categories and certifications, the Sales/Email/Visit field labels, the coast and office groups, the C16 and RSPO panel titles.
 
 Still needed from Darby:
 - **Personal Care products:** names, categories, descriptions and images, to the brief in the design system. The division copy on the home page and its page is placeholder until then.
