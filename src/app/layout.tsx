@@ -41,7 +41,14 @@ const organization = {
   url: site.url,
   logo: `${site.url}/assets/brand/darby-wordmark-on-white.svg`,
   email: site.email.display,
-  telephone: "+1-914-701-0003",
+  telephone: site.contacts[0].href.replace("tel:", ""),
+  contactPoint: site.contacts.map((c) => ({
+    "@type": "ContactPoint",
+    contactType: c.role,
+    telephone: c.href.replace("tel:", ""),
+    email: site.email.display,
+    areaServed: "US",
+  })),
   foundingDate: String(site.since),
   address: {
     "@type": "PostalAddress",

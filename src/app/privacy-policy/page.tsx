@@ -42,8 +42,7 @@ export default function PrivacyPolicyPage() {
             <p>
               This website is operated by {site.legalName} (“Darby”, “we”, “us”), {site.address.street},{" "}
               {site.address.locality}, {site.address.region} {site.address.postalCode}, United States. For any question
-              about this policy or your information, email <a href={site.email.href}>{site.email.display}</a> or call{" "}
-              <a href={site.phone.href}>{site.phone.display}</a>.
+              about this policy or your information, email <a href={site.email.href}>{site.email.display}</a>.
             </p>
 
             <h2>What we collect</h2>

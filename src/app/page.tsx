@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroFilm } from "@/components/HeroFilm";
 import { ButtonLink, Equator } from "@/components/ui";
-import { getCategories, getProducts, pluralProducts, type DivisionName } from "@/lib/products";
+import { getCategories, pluralProducts, type DivisionName } from "@/lib/products";
 import { homeSeo, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -32,6 +32,13 @@ const divisions: {
     audience: "For bakery and confectionery manufacturers",
     text: "Margarines, shortenings, compound chocolate fats and specialty oils, developed for industrial production and consistent texture and taste.",
   },
+  {
+    name: "Personal Care",
+    href: "/personal-care",
+    image: "/assets/products/hydro-palm-flakes.webp",
+    audience: "For personal care and cosmetics manufacturers",
+    text: "Palm-based ingredients for personal care and cosmetic formulations, from the same RSPO-certified origin and the same U.S. warehouses.",
+  },
 ];
 
 const proof = [
@@ -47,8 +54,8 @@ const proof = [
   },
   {
     number: String(site.since),
-    title: "Specialists, not generalists",
-    text: "More than thirty years in palm alone, with full specifications on request from the team in Armonk.",
+    title: "Thirty years in palm",
+    text: "Palm has been our only business since 1992, with full specifications on request from the team in Armonk.",
   },
 ];
 
@@ -73,17 +80,17 @@ export default function HomePage() {
         <div className="container hero__content">
           <div className="hero__col">
             <div className="hero__head">
-              <span className="label label--kernel">Palm specialists since {site.since}</span>
+              <span className="label label--kernel">Darby Trading · Since {site.since}</span>
               <h1 id="hero-h" className="hero__title">
-                Palm, refined for feed and food.
+                Palm-based ingredients for feed, food and personal care.
               </h1>
             </div>
             <div className="hero__equator">
               <Equator end="Malaysia · Indonesia" />
             </div>
             <p className="hero__lead">
-              Bypass fats for dairy and beef rations. Specialty fats for bakery and confectionery. Sourced from
-              RSPO-certified producers and stocked at six U.S. ports.
+              Fats, oils and derivatives for animal nutrition, food and personal care, sourced from RSPO-certified
+              producers and stocked at six U.S. ports.
             </p>
             <div className="btn-row">
               <ButtonLink href="/animal-nutrition" variant="gold">
@@ -91,6 +98,9 @@ export default function HomePage() {
               </ButtonLink>
               <ButtonLink href="/food-ingredients" variant="outline">
                 Food Ingredients
+              </ButtonLink>
+              <ButtonLink href="/personal-care" variant="outline">
+                Personal Care
               </ButtonLink>
             </div>
           </div>
@@ -104,18 +114,17 @@ export default function HomePage() {
             <div className="intro-split__head">
               <span className="label label--gold">What we supply</span>
               <h2 id="supply-h" className="h-section">
-                Two divisions. One palm supply chain.
+                Animal nutrition, food ingredients and personal care.
               </h2>
             </div>
             <p className="body-lg intro-split__text">
-              Whether you formulate rations or run a production line, the fats come from the same certified origin and
-              the same six U.S. ports.
+              Whether you formulate rations, run a production line or develop personal care products, the ingredients
+              come from the same certified origin and the same six U.S. ports.
             </p>
           </div>
           <div className="division-rows">
             {divisions.map((d, i) => {
               const categories = getCategories(d.name);
-              const total = getProducts(d.name).length;
               return (
                 <div key={d.name} className={`division-row pcard${i % 2 ? " division-row--reverse" : ""}`}>
                   <Link href={d.href} tabIndex={-1} aria-hidden="true" className="division-row__media">
@@ -132,17 +141,26 @@ export default function HomePage() {
                     <span className="label label--gold">{d.audience}</span>
                     <h3 className="division-row__title">{d.name}</h3>
                     <p className="body-lg division-row__text">{d.text}</p>
-                    <ul className="cat-list">
-                      {categories.map((c) => (
-                        <li key={c.name} className="cat-list__row">
-                          <span className="cat-list__name">{c.name}</span>
-                          <span className="cat-list__count">{pluralProducts(c.count)}</span>
+                    {categories.length > 0 ? (
+                      <ul className="cat-list">
+                        {categories.map((c) => (
+                          <li key={c.name} className="cat-list__row">
+                            <span className="cat-list__name">{c.name}</span>
+                            <span className="cat-list__count">{pluralProducts(c.count)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <ul className="cat-list">
+                        <li className="cat-list__row">
+                          <span className="cat-list__name">Product range</span>
+                          <span className="cat-list__count">Specifications on request</span>
                         </li>
-                      ))}
-                    </ul>
+                      </ul>
+                    )}
                     <div className="division-row__cta">
                       <ButtonLink href={d.href} variant="frond">
-                        Explore {total} products
+                        Explore {d.name}
                       </ButtonLink>
                     </div>
                   </div>
@@ -181,7 +199,7 @@ export default function HomePage() {
             <div className="prompt__head">
               <span className="label label--gold">Contact</span>
               <h2 id="contact-h" className="prompt__title">
-                Talk to a palm specialist.
+                Talk to the Darby team.
               </h2>
               <p className="body-lg prompt__text">Specifications, pricing and availability for both divisions.</p>
             </div>
@@ -189,8 +207,8 @@ export default function HomePage() {
               <ButtonLink href="/contact" variant="frond">
                 Contact us
               </ButtonLink>
-              <a href={site.phone.href} className="prompt__phone">
-                {site.phone.display}
+              <a href={site.contacts[0].href} className="prompt__phone">
+                <span className="prompt__phone-role">Sales</span> {site.contacts[0].display}
               </a>
             </div>
           </div>

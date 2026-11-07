@@ -37,12 +37,23 @@ const cards = [
     },
   },
   {
+    file: "darby-personal-care.jpg",
+    kind: "division",
+    data: {
+      name: "Personal Care",
+      headline: "Palm-based ingredients for personal care.",
+      foot: "<b>RSPO-certified origin</b> · Specifications on request",
+      image: img("assets/products/hydro-palm-flakes.webp"),
+      tag: "Hydro Palm Flakes",
+    },
+  },
+  {
     file: "darby-contact.jpg",
     kind: "division",
     data: {
       name: "Contact",
-      headline: "Talk to a palm specialist.",
-      foot: "<b>+1 914 701 0003</b> · info@darbyinc.com<br>6 Maple Ave, Armonk, NY 10504",
+      headline: "Talk to the Darby team.",
+      foot: "<b>Sales</b> +1 914 557 0514 · <b>Operations</b> +1 914 774 1660 · <b>Finance</b> +1 914 419 3993<br>info@darbyinc.com · 6 Maple Ave, Armonk, NY 10504",
       image: img("assets/video/darby-hero-poster.jpg"),
       tag: "Stocked at six U.S. ports",
     },

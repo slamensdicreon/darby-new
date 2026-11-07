@@ -22,7 +22,7 @@
   .home .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(19,42,34,.90) 0%, rgba(19,42,34,.82) 55%, rgba(19,42,34,.45) 82%, rgba(19,42,34,.30) 100%); }
   .home .inner { position: relative; width: 100%; padding: 64px 72px 60px; display: flex; flex-direction: column; justify-content: space-between; }
   .home .stack { display: flex; flex-direction: column; gap: 26px; max-width: 820px; }
-  .home h1 { font-size: 92px; }
+  .home h1 { font-size: 76px; }
   .home .equator { width: 600px; }
 
   /* Division and contact: Frond text column beside an image panel */
@@ -43,10 +43,10 @@
     home: () => `<div class="card home"><div class="shade"></div><div class="inner">
       ${WORDMARK(40, '#1E3B2F')}
       <div class="stack">
-        <span class="label">Palm specialists since 1992</span>
-        <h1>Palm, refined for feed and food.</h1>
+        <span class="label">Darby Trading · Since 1992</span>
+        <h1>Palm-based ingredients for feed, food and personal care.</h1>
         <div class="equator"><span class="deg">0°</span><span class="line"></span><span class="label">Malaysia · Indonesia</span></div>
-        <span class="foot">Bypass fats for dairy and beef · Specialty fats for bakery and confectionery</span>
+        <span class="foot">Animal Nutrition · Food Ingredients · Personal Care · RSPO-certified origin</span>
       </div></div></div>`,
     division: ({ name, headline, foot, image, tag }) => `<div class="card split">
       <div class="text">

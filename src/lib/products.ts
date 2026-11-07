@@ -1,6 +1,6 @@
 import catalog from "@/data/products.json";
 
-export type DivisionName = "Animal Nutrition" | "Food Ingredients";
+export type DivisionName = "Animal Nutrition" | "Food Ingredients" | "Personal Care";
 
 export type Product = {
   slug: string;

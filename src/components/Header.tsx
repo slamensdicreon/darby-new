@@ -88,7 +88,7 @@ export function Header() {
             </li>
           </ul>
           <div className="mobile-menu__direct">
-            <a href={site.phone.href}>{site.phone.display}</a>
+            <a href={site.contacts[0].href}>{site.contacts[0].display}</a>
             <a href={site.email.href}>{site.email.display}</a>
           </div>
         </nav>

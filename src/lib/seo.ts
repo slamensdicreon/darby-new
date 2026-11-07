@@ -3,7 +3,7 @@ import { site } from "./site";
 
 /** Share images, 1200×630 JPEG, rendered by scripts/og/generate.cjs. */
 export const ogImages = {
-  home: { url: "/og/darby-home.jpg", alt: "Darby: Palm, refined for feed and food." },
+  home: { url: "/og/darby-home.jpg", alt: "Darby: palm-based ingredients for feed, food and personal care." },
   animalNutrition: {
     url: "/og/darby-animal-nutrition.jpg",
     alt: "Darby Animal Nutrition: high-C16 palm fats for dairy and beef rations.",
@@ -12,7 +12,11 @@ export const ogImages = {
     url: "/og/darby-food-ingredients.jpg",
     alt: "Darby Food Ingredients: specialty fats for bakery and confectionery.",
   },
-  contact: { url: "/og/darby-contact.jpg", alt: "Talk to a Darby palm specialist. +1 914 701 0003." },
+  personalCare: {
+    url: "/og/darby-personal-care.jpg",
+    alt: "Darby Personal Care: palm-based ingredients for personal care and cosmetics.",
+  },
+  contact: { url: "/og/darby-contact.jpg", alt: "Talk to the Darby team. Sales +1 914 557 0514." },
 } as const;
 
 type PageSeo = {
@@ -54,9 +58,9 @@ export function pageMetadata({ title, description, path, image = ogImages.home }
 }
 
 export const homeSeo: PageSeo = {
-  title: "Darby | Palm fats for feed and food",
+  title: "Darby | Palm ingredients for feed, food and personal care",
   description:
-    "Palm-based bypass fats for dairy and beef rations and specialty fats for bakery and confectionery. RSPO-certified sourcing, stocked at six U.S. ports.",
+    "Palm-based fats, oils and derivatives for animal nutrition, food and personal care, from RSPO-certified producers and stocked at six U.S. ports.",
   path: "/",
   image: ogImages.home,
 };

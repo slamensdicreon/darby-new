@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { ogImages, pageMetadata } from "@/lib/seo";
-import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
+import { NetworkMap } from "@/components/NetworkMap";
 import { Breadcrumb } from "@/components/ui";
-import { site, warehouses } from "@/lib/site";
+import { offices, site, warehouses } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact | Darby",
   description:
-    "Talk to a Darby palm specialist about specifications, pricing and availability. 6 Maple Ave, Armonk, NY 10504. +1 914 701 0003.",
+    "Talk to the Darby team about specifications, pricing and availability. Sales +1 914 557 0514. 6 Maple Ave, Armonk, NY 10504.",
   path: "/contact",
   image: ogImages.contact,
 });
@@ -21,21 +21,24 @@ export default function ContactPage() {
           <div className="contact__intro">
             <Breadcrumb current="Contact" />
             <h1 id="contact-h" className="contact__title">
-              Talk to a palm specialist.
+              Talk to the Darby team.
             </h1>
             <p className="contact__lead">
-              Specifications, pricing and availability for Animal Nutrition and Food Ingredients. Your message goes
-              straight to the team in Armonk, New York.
+              Specifications, pricing and availability for Animal Nutrition, Food Ingredients and Personal Care. Call
+              the right person directly, or send a message to the team in Armonk, New York.
             </p>
             <dl className="details">
-              <div className="details__row">
-                <dt className="label label--olein">Call</dt>
-                <dd>
-                  <a href={site.phone.href} className="details__value">
-                    {site.phone.display}
-                  </a>
-                </dd>
-              </div>
+              {site.contacts.map((c) => (
+                <div key={c.role} className="details__row">
+                  <dt className="label label--olein">{c.role}</dt>
+                  <dd>
+                    <a href={c.href} className="details__value">
+                      {c.display}
+                    </a>
+                    <span className="details__name">{c.name}</span>
+                  </dd>
+                </div>
+              ))}
               <div className="details__row">
                 <dt className="label label--olein">Email</dt>
                 <dd>
@@ -65,37 +68,44 @@ export default function ContactPage() {
       </section>
 
       <section aria-labelledby="ports-h">
-        <div className="container ports__inner">
-          <div className="ports__text">
-            <span className="label label--gold">Warehouses</span>
-            <h2 id="ports-h" className="ports__title">
-              Stocked on three coasts.
-            </h2>
-            <p className="body-lg ports__lead">
+        <div className="container network__inner">
+          <div className="intro-split">
+            <div className="intro-split__head">
+              <span className="label label--gold">Warehouses and offices</span>
+              <h2 id="ports-h" className="h-section">
+                Stocked on three coasts. Present at origin.
+              </h2>
+            </div>
+            <p className="body-lg intro-split__text">
               Orders ship from the port nearest your plant, LTL, FTL or as bulk liquid ex-tank, through trusted
-              logistics partners.
+              logistics partners. Our Thailand office keeps us close to the producers.
             </p>
-            <div className="coasts">
-              {warehouses.map((w) => (
-                <div key={w.coast} className="coast">
-                  <span className="label label--gold">{w.coast}</span>
-                  {w.cities.map((c) => (
-                    <span key={c} className="coast__city">
-                      {c}
-                    </span>
-                  ))}
-                </div>
+          </div>
+
+          <div className="network__map">
+            <NetworkMap />
+          </div>
+
+          <div className="network__legend">
+            {warehouses.map((w) => (
+              <div key={w.coast} className="coast">
+                <span className="label label--gold">{w.coast}</span>
+                {w.cities.map((c) => (
+                  <span key={c} className="coast__city">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            ))}
+            <div className="coast coast--offices">
+              <span className="label label--gold">Offices</span>
+              {offices.map((o) => (
+                <span key={o.name} className="coast__city">
+                  {o.name}
+                  <span className="coast__detail">{o.detail}</span>
+                </span>
               ))}
             </div>
-          </div>
-          <div className="ports__media">
-            <Image
-              src="/assets/video/darby-hero-poster.jpg"
-              alt="Palm fronds against a sunset over the sea"
-              fill
-              sizes="(min-width: 1000px) 520px, 100vw"
-              style={{ objectFit: "cover", objectPosition: "30% 50%" }}
-            />
           </div>
         </div>
       </section>

@@ -109,7 +109,7 @@ export function ContactForm() {
             Thank you, {sent?.first}.
           </h2>
           <p className="body-lg sent__text">
-            Your message is with the Darby team in Armonk. A specialist will reply to {sent?.email}.
+            Your message is with the Darby team in Armonk. The team will reply to {sent?.email}.
           </p>
           <div>
             <button type="button" className="btn btn--frond-outline" onClick={again}>

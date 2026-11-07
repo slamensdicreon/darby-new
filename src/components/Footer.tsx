@@ -13,6 +13,7 @@ export function Footer() {
             <nav aria-label="Footer" className="site-footer__col">
               <Link href="/animal-nutrition">Animal Nutrition</Link>
               <Link href="/food-ingredients">Food Ingredients</Link>
+              <Link href="/personal-care">Personal Care</Link>
               <Link href="/#about">About</Link>
               <Link href="/contact">Contact</Link>
             </nav>
@@ -22,7 +23,11 @@ export function Footer() {
                 <br />
                 {site.address.locality}, {site.address.region} {site.address.postalCode}
               </span>
-              <a href={site.phone.href}>{site.phone.display}</a>
+              {site.contacts.map((c) => (
+                <a key={c.role} href={c.href}>
+                  <span className="site-footer__role">{c.role}</span> {c.display}
+                </a>
+              ))}
               <a href={site.email.href}>{site.email.display}</a>
               <a href={site.linkedin} rel="noopener">
                 LinkedIn

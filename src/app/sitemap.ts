@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", priority: 1 },
     { path: "/animal-nutrition", priority: 0.9 },
     { path: "/food-ingredients", priority: 0.9 },
+    { path: "/personal-care", priority: 0.9 },
     { path: "/contact", priority: 0.7 },
     { path: "/privacy-policy", priority: 0.2 },
   ];

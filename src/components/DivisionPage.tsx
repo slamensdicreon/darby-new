@@ -2,12 +2,13 @@ import { ProductCatalog } from "./ProductCatalog";
 import { SpecForm } from "./SpecForm";
 import { Breadcrumb, ButtonLink, Equator } from "./ui";
 import { getCategories, getProducts, numberWord, pluralProducts, type DivisionName } from "@/lib/products";
+import { site } from "@/lib/site";
 
 export type DivisionConfig = {
   division: DivisionName;
   standfirst: string;
   /** Visual panel beside the hero text. */
-  panel: "c16" | "categories";
+  panel: "c16" | "categories" | "rspo";
   /** Card name size in px; the prototype uses 28 (Animal Nutrition) and 22 (Food Ingredients). */
   nameSize: number;
   proof: { title: string; text: string }[];
@@ -34,7 +35,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
                 Get the specifications
               </ButtonLink>
               <ButtonLink href="/contact" variant="outline">
-                Talk to a specialist
+                Contact the team
               </ButtonLink>
             </div>
           </div>
@@ -48,6 +49,18 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
               </div>
               <p className="c16__caption">
                 Palmitic acid is the fatty acid behind Darby’s bypass fats. Ultra Cal 60 and 70 are high in C16.
+              </p>
+            </div>
+          ) : panel === "rspo" ? (
+            <div className="dpanel dpanel--c16">
+              <span className="label label--olein">The same certified origin</span>
+              <div className="c16" aria-hidden="true">
+                <div className="c16__line" />
+                <span className="c16__text c16__text--rspo">RSPO</span>
+              </div>
+              <p className="c16__caption">
+                Every Darby division draws on the same vetted producers in Malaysia and Indonesia. Member{" "}
+                {site.rspoMember}.
               </p>
             </div>
           ) : (
@@ -70,12 +83,33 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
 
       <section id="products" aria-label="Products">
         <div className="container catalog__inner">
-          <ProductCatalog
-            products={products}
-            categories={categories}
-            nameSize={nameSize}
-            title={`Every ${division.toLowerCase()} product, in one place.`}
-          />
+          {products.length > 0 ? (
+            <ProductCatalog
+              products={products}
+              categories={categories}
+              nameSize={nameSize}
+              title={`Every ${division.toLowerCase()} product, in one place.`}
+            />
+          ) : (
+            <div className="catalog__pending">
+              <div className="catalog__title-group">
+                <span className="label label--gold">The product line</span>
+                <h2 className="h-block">The {division} range, on request.</h2>
+              </div>
+              <p className="body-lg catalog__pending-text">
+                The full {division} product list and specifications are available from the team in Armonk. Request
+                them below, or contact us with your application and we will recommend a grade.
+              </p>
+              <div className="btn-row">
+                <ButtonLink href="#specs" variant="frond">
+                  Request the product list
+                </ButtonLink>
+                <ButtonLink href="/contact" variant="frond-outline">
+                  Contact the team
+                </ButtonLink>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

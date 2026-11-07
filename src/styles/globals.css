@@ -1815,3 +1815,177 @@ a.details__value:hover {
     transform: none !important;
   }
 }
+
+/* ---------- Contact: direct lines ---------- */
+.details dt {
+  flex: 0 0 104px;
+}
+.details__name {
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--color-muted-on-dark);
+}
+.site-footer__role,
+.prompt__phone-role {
+  color: var(--color-muted-on-dark);
+  font-weight: 500;
+}
+.prompt__phone-role {
+  color: var(--color-muted-on-light);
+}
+
+/* ---------- Contact: network map ---------- */
+.network__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding-top: clamp(72px, 9vw, 128px);
+  padding-bottom: clamp(72px, 9vw, 128px);
+}
+.network__map {
+  background: var(--color-deep);
+  border-radius: var(--radius);
+  padding: clamp(16px, 3vw, 40px) clamp(8px, 2vw, 24px);
+}
+.netmap {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-family);
+}
+.netmap__land {
+  fill: #2a4b3d;
+  stroke: #355b4b;
+  stroke-width: 0.6;
+}
+.netmap__equator {
+  stroke: var(--color-olein);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 5;
+  opacity: 0.85;
+}
+.netmap__origin {
+  fill: var(--color-olein);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.netmap__origin--deg {
+  letter-spacing: 0.1em;
+}
+.netmap__halo {
+  fill: var(--color-olein);
+  opacity: 0.14;
+}
+.netmap__star {
+  fill: var(--color-olein);
+  stroke: var(--color-deep);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.netmap__loc--office .netmap__star {
+  fill: var(--color-kernel);
+}
+.netmap__label {
+  fill: var(--color-kernel);
+  font-size: 13px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--color-deep);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.netmap__note {
+  fill: var(--color-muted-on-dark);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.network__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 40px;
+}
+.network__legend .coast {
+  flex: 1 1 180px;
+}
+.coast--offices {
+  flex: 1.4 1 260px;
+}
+.coast__detail {
+  display: block;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-muted-on-light);
+}
+
+/* ---------- Division: catalog pending ---------- */
+.catalog__pending {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+}
+.catalog__pending-text {
+  max-width: 620px;
+}
+.c16__text--rspo {
+  font-size: clamp(84px, min(11vw, 18svh), 150px);
+  letter-spacing: -0.03em;
+}
+
+/* Five navigation items: tighten the header on tablets so it stays on one line. */
+@media (max-width: 1000px) and (min-width: 761px) {
+  .site-header__nav {
+    gap: 4px 22px;
+  }
+}
+@media (max-width: 860px) and (min-width: 761px) {
+  .site-header__bar {
+    gap: 12px 20px;
+  }
+  .site-header__nav {
+    gap: 4px 16px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+  .site-header__nav .btn {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .network__inner {
+    gap: 36px;
+  }
+  .network__map {
+    margin-left: calc(-1 * var(--container-pad));
+    margin-right: calc(-1 * var(--container-pad));
+    border-radius: 0;
+    padding: 16px 4px;
+  }
+  /* The map is too small for labels on phones; the legend below carries the names. */
+  .netmap__label,
+  .netmap__origin {
+    display: none;
+  }
+  .netmap__halo {
+    r: 18;
+  }
+  .netmap__star {
+    transform: scale(1.5);
+  }
+  .netmap__equator {
+    stroke-width: 2.5;
+  }
+  .details dt {
+    flex: 0 0 96px;
+  }
+}
