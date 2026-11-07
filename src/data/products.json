@@ -11,7 +11,9 @@
     "image": "/assets/products/dt80.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "dt98",
@@ -25,7 +27,9 @@
     "image": "/assets/products/dt98.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "dt100",
@@ -39,7 +43,9 @@
     "image": "/assets/products/dt100.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "profat-85",
@@ -53,7 +59,9 @@
     "image": "/assets/products/profat-85.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "tri-fat-75",
@@ -67,7 +75,9 @@
     "image": "/assets/products/tri-fat-75.webp",
     "spec_sheet": null,
     "image_source": "AI-generated, based on a sibling product's photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "calcium-salt",
@@ -81,7 +91,9 @@
     "image": "/assets/products/calcium-salt.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "ultra-cal-60",
@@ -95,7 +107,9 @@
     "image": "/assets/products/ultra-cal-60.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "ultra-cal-70",
@@ -109,7 +123,9 @@
     "image": "/assets/products/ultra-cal-70.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "omega-22",
@@ -123,7 +139,9 @@
     "image": "/assets/products/omega-22.webp",
     "spec_sheet": null,
     "image_source": "AI-generated, based on a sibling product's photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "k2co3-potassium-carbonate",
@@ -137,7 +155,9 @@
     "image": "/assets/products/k2co3-potassium-carbonate.webp",
     "spec_sheet": null,
     "image_source": "AI-generated from Darby's own product photo",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "gold-margarine-premium",
@@ -151,7 +171,12 @@
     "image": "/assets/products/gold-margarine-premium.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Margarine made from highly refined palm oil. It has butter flavor and has a special texture to impart its outstanding performance in bakery and cream applications.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "shortening-4852",
@@ -165,7 +190,12 @@
     "image": "/assets/products/shortening-4852.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined palm oils. It is specially texturized with modern texturizing processing plant to give rise to optimum crystal structure of shortening. It has off-white creamy appearance and is bland in odor and taste.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "butter-oil-substitute",
@@ -179,7 +209,12 @@
     "image": "/assets/products/butter-oil-substitute.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined palm oil which has great elasticity for efficient processing of bakery and confectionery products. It has great flavor releasing properties and gives excellent texture to baked products.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "cocoa-butter-replacer",
@@ -193,7 +228,12 @@
     "image": "/assets/products/cocoa-butter-replacer.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Cocoa butter replacement derived from a specially blend of palm oil.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "choch-9503",
@@ -207,7 +247,12 @@
     "image": "/assets/products/choch-9503.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "A lauric palm fat with superb mild odor and taste. It provides excellent melting properties at the best value.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "choch-7011-xc",
@@ -221,7 +266,12 @@
     "image": "/assets/products/choch-7011-xc.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "A lauric palm fat with superb bland odor and taste. It provides excellent melting properties at the best value.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "choch-3840",
@@ -235,7 +285,12 @@
     "image": "/assets/products/choch-3840.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "A lauric palm fat with superb bland odor and taste. It provides excellent melting properties at the best value.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "vegetable-spread",
@@ -249,7 +304,12 @@
     "image": "/assets/products/vegetable-spread.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined palm oil which is suitable for various applications. It exhibits excellent stability with minimal oil separation and has shiny appearance.",
+    "certifications": [
+      "Halal",
+      "ISO 9001:2015"
+    ]
   },
   {
     "slug": "fry-shortening",
@@ -263,7 +323,12 @@
     "image": "/assets/products/fry-shortening.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined palm oil. It has a special texture to impart to give rise to optimum crystal structure of shortening. It has off-white creamy appearance and is mild in odor and taste.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "shortening-4143",
@@ -277,7 +342,12 @@
     "image": "/assets/products/shortening-4143.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined palm oils. It is specially texturized with modern texturizing processing plant to give rise to optimum crystal structure of shortening. It has off-white creamy appearance and is bland in odor and taste.",
+    "certifications": [
+      "Halal",
+      "FSSC 22000"
+    ]
   },
   {
     "slug": "rcno",
@@ -291,7 +361,12 @@
     "image": "/assets/products/rcno.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly refined vegetable oil.",
+    "certifications": [
+      "Halal",
+      "ISO 9001:2015"
+    ]
   },
   {
     "slug": "medium-chain-triglyceride",
@@ -305,7 +380,9 @@
     "image": "/assets/products/medium-chain-triglyceride.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": null,
+    "certifications": []
   },
   {
     "slug": "hydro-palm-flakes",
@@ -319,6 +396,11 @@
     "image": "/assets/products/hydro-palm-flakes.webp",
     "spec_sheet": null,
     "image_source": "AI-generated placeholder (no Darby photo exists)",
-    "image_status": "Needs client approval or replacement with studio photography"
+    "image_status": "Needs client approval or replacement with studio photography",
+    "composition": "Made from highly stable, refined hydrogenated palm fat. Its convenient flake format makes this high-melting-point hard fat exceptionally easy to handle.",
+    "certifications": [
+      "Halal",
+      "ISO 9001:2015"
+    ]
   }
 ]

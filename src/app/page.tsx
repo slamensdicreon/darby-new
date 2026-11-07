@@ -41,6 +41,21 @@ const divisions: {
   },
 ];
 
+const customers = [
+  {
+    title: "Animal nutrition",
+    text: "Feed mills, dairy and beef nutritionists, and premix and ration formulators.",
+  },
+  {
+    title: "Food manufacturing",
+    text: "Industrial bakeries, confectioners, and snack, frozen and prepared-food producers.",
+  },
+  {
+    title: "Personal care",
+    text: "Personal care and cosmetics manufacturers and their contract formulators.",
+  },
+];
+
 const proof = [
   {
     number: "RSPO",
@@ -167,6 +182,31 @@ export default function HomePage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Who we supply (added on client feedback, after competitor review) */}
+      <section aria-labelledby="customers-h" className="customers">
+        <div className="container customers__inner">
+          <div className="intro-split">
+            <div className="intro-split__head">
+              <span className="label label--gold">Who we supply</span>
+              <h2 id="customers-h" className="h-section">
+                Feed mills, food manufacturers and formulators across North America.
+              </h2>
+            </div>
+            <p className="body-lg intro-split__text">
+              Specifications, samples and pricing from the team in Armonk, and stock at the port nearest your plant.
+            </p>
+          </div>
+          <div className="strip__inner customers__items">
+            {customers.map((c) => (
+              <div key={c.title} className="strip__item">
+                <span className="strip__title">{c.title}</span>
+                <span className="strip__text">{c.text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

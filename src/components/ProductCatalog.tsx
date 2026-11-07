@@ -90,6 +90,17 @@ export function ProductCatalog({
               </h3>
               <span className="card__subtitle">{p.subtitle}</span>
               <p className="card__desc">{p.description}</p>
+              {p.composition ? <p className="card__composition">{p.composition}</p> : null}
+              {p.certifications.length > 0 ? (
+                <p className="card__certs">
+                  <span className="card__certs-label">Certified</span>
+                  {p.certifications.map((c) => (
+                    <span key={c} className="card__cert">
+                      {c}
+                    </span>
+                  ))}
+                </p>
+              ) : null}
               {p.spec_sheet ? (
                 <a className="card__link" href={p.spec_sheet} target="_blank" rel="noopener">
                   Download spec sheet

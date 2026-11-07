@@ -16,6 +16,10 @@ export type Product = {
   image: string;
   /** Spec sheet PDF path, once Darby supplies them (open item #2). */
   spec_sheet: string | null;
+  /** What the product is made from and how it behaves; from darbyinc.com product pages. */
+  composition: string | null;
+  /** Certifications held, e.g. Halal, FSSC 22000, ISO 9001:2015; from darbyinc.com. */
+  certifications: string[];
   image_source: string;
   image_status: string;
 };

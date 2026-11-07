@@ -39,6 +39,9 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <a href={site.contacts[0].href} className="nav-phone">
+            <span className="nav-phone__role">Sales</span> {site.contacts[0].display}
+          </a>
           <Link href="/contact" className="btn btn--gold site-header__contact" aria-current={pathname === "/contact" ? "page" : undefined}>
             Contact
           </Link>

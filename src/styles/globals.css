@@ -1989,3 +1989,89 @@ a.details__value:hover {
     flex: 0 0 96px;
   }
 }
+
+/* ---------- Product card: composition and certifications ---------- */
+.card__composition {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-muted-on-light);
+}
+.card__certs {
+  margin: 2px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.card__certs-label {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+  margin-right: 2px;
+}
+.card__cert {
+  padding: 2px 8px;
+  border: 1px solid var(--line-on-light);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---------- Header: sales line on wide screens ---------- */
+.nav-phone {
+  display: none;
+  color: var(--color-kernel);
+  font-size: var(--text-small);
+  line-height: 20px;
+  font-weight: 600;
+  padding: 12px 0;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.nav-phone__role {
+  color: var(--color-muted-on-dark);
+  font-weight: 500;
+}
+.nav-phone:hover {
+  color: var(--color-olein);
+}
+@media (min-width: 1200px) {
+  .nav-phone {
+    display: inline-block;
+  }
+}
+
+/* ---------- Home: who we supply ---------- */
+.customers {
+  background: var(--color-white);
+  border-top: 1px solid var(--line-on-light);
+}
+.customers__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.customers__items {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media (max-width: 760px) {
+  .customers__inner {
+    gap: 36px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .card__composition {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
