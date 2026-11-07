@@ -7,7 +7,7 @@ import { HeroFilm } from "@/components/HeroFilm";
 import { Icon } from "@/components/icons";
 import { StatCounter } from "@/components/StatCounter";
 import { ButtonLink, Equator } from "@/components/ui";
-import { getCategories, getProducts, pluralProducts, productImage, type DivisionName } from "@/lib/products";
+import { getCategories, getProducts, productImage, type DivisionName } from "@/lib/products";
 import { homeSeo, pageMetadata } from "@/lib/seo";
 import { offices, site, warehouses } from "@/lib/site";
 
@@ -195,7 +195,6 @@ export default function HomePage() {
                       {categories.map((c) => (
                         <li key={c.name} className="cat-list__row">
                           <span className="cat-list__name">{c.name}</span>
-                          <span className="cat-list__count">{pluralProducts(c.count)}</span>
                         </li>
                       ))}
                     </ul>
