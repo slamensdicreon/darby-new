@@ -1,11 +1,21 @@
 /** Shared by the browser forms and the API routes, so client and server agree. */
 export const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
-export const INTERESTS = ["Animal Nutrition", "Food Ingredients", "Both divisions"] as const;
+export const INTERESTS = ["Animal Nutrition", "Food Ingredients", "Personal Care"] as const;
 export type Interest = (typeof INTERESTS)[number];
+export const INTERESTS_ERROR = "Choose at least one division.";
+
+/** Keeps only valid division names, in catalog order, without duplicates. */
+export function parseInterests(value: unknown): Interest[] {
+  const list = Array.isArray(value) ? value : [];
+  return INTERESTS.filter((i) => list.includes(i));
+}
+
+/** Slug used in /contact?interest=… links from the division pages. */
+export const interestSlug = (i: Interest) => i.toLowerCase().replace(/\s+/g, "-");
 
 export type ContactInput = {
-  interest: Interest;
+  interests: Interest[];
   first: string;
   last: string;
   company: string;

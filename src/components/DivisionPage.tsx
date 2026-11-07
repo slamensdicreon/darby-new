@@ -3,6 +3,7 @@ import { SpecForm } from "./SpecForm";
 import { Breadcrumb, ButtonLink, Equator } from "./ui";
 import { getCategories, getProducts, numberWord, pluralProducts, type DivisionName } from "@/lib/products";
 import { site } from "@/lib/site";
+import { interestSlug } from "@/lib/validation";
 
 export type DivisionConfig = {
   division: DivisionName;
@@ -34,7 +35,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
               <ButtonLink href="#specs" variant="gold">
                 Get the specifications
               </ButtonLink>
-              <ButtonLink href="/contact" variant="outline">
+              <ButtonLink href={`/contact?interest=${interestSlug(division)}`} variant="outline">
                 Contact the team
               </ButtonLink>
             </div>
@@ -103,7 +104,7 @@ export function DivisionPage({ division, standfirst, panel, nameSize, proof }: D
                 <ButtonLink href="#specs" variant="frond">
                   Request the product list
                 </ButtonLink>
-                <ButtonLink href="/contact" variant="frond-outline">
+                <ButtonLink href={`/contact?interest=${interestSlug(division)}`} variant="frond-outline">
                   Contact the team
                 </ButtonLink>
               </div>

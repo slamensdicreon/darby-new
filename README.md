@@ -88,7 +88,7 @@ Both forms validate in the browser exactly as the prototype does, then post to A
 
 | Form | Route | Sends |
 |---|---|---|
-| Contact | `POST /api/contact` | interest, name, company, phone, email, message, wants specifications |
+| Contact | `POST /api/contact` | interests (one or more of the three divisions), name, company, phone, email, message, wants specifications |
 | Spec request | `POST /api/specs` | name, email, division, product (if picked from a card), marketing opt-in |
 
 Set `CONTACT_WEBHOOK_URL` and `SPEC_WEBHOOK_URL` to receive each submission as a JSON POST (Zapier, Make, a CRM endpoint, etc.). Without them, submissions are logged on the server only. The in-memory rate limiter is per server instance; use a shared store if stricter limits are needed.
@@ -111,6 +111,7 @@ After reviewing the reference sites the client sent (Waxian, Global Agri-Trade, 
 - **Product detail.** Each Food Ingredients card now carries a composition line and certification chips (Halal, FSSC 22000, ISO 9001:2015), taken from the product pages on the current darbyinc.com (`composition` and `certifications` in `products.json`). Animal Nutrition products have no such data on the current site; add the fields when Darby supplies them.
 - **"Who we supply"** band on the home page, naming the customer types for each division.
 - **Sales line in the header** on screens 1200px and wider.
+- **Contact form covers all three divisions.** "I'm interested in" is a choose-one-or-more set of Animal Nutrition, Food Ingredients and Personal Care (replacing "Both divisions"); at least one is required. "Contact the team" on a division page pre-selects that division via `/contact?interest=…`.
 - **Image edges trimmed.** Every handover product image had 3 black pixel columns on the left and 2 on the right, which showed as a hairline border on the site (and in the prototype). All 23 were trimmed and re-encoded at 1200×900. Product image URLs carry `?v=N` (`PRODUCT_IMAGE_VERSION` in `src/lib/products.ts`); bump it whenever image files change in place, so Vercel's image cache refreshes.
 - **Personal Care products** (Darby IPM, Darby IPP, Darby MCT) added from the client's product information, with two generated placeholder images to the design-system brief (close-up liquid, no containers) and the existing MCT image reused. Approval needed, as for the other 23.
 - **Eyebrow labels removed** wherever they only restated the heading beneath them (hero, section intros, catalog, spec form, warehouses, share images). Labels that carry information stay: card categories and certifications, the Sales/Email/Visit field labels, the coast and office groups, the C16 and RSPO panel titles.

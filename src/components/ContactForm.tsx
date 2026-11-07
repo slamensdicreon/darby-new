@@ -1,21 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   CONTACT_FIELDS,
   HONEYPOT,
   INTERESTS,
+  INTERESTS_ERROR,
+  interestSlug,
   type ContactField,
   type Interest,
   validateContact,
 } from "@/lib/validation";
 
-type Errors = Partial<Record<ContactField, string>>;
+type Errors = Partial<Record<ContactField | "interests", string>>;
 
 /** Contact inquiry form (build spec 5.2). */
 export function ContactForm() {
-  const [interest, setInterest] = useState<Interest>("Animal Nutrition");
+  const [interests, setInterests] = useState<Interest[]>([]);
+  const firstToggle = useRef<HTMLButtonElement>(null);
+
+  // /contact?interest=food-ingredients (from a division page) pre-selects that division.
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("interest");
+    const match = INTERESTS.find((i) => interestSlug(i) === wanted);
+    if (match) setInterests([match]);
+  }, []);
+
+  const toggle = (opt: Interest) =>
+    setInterests((cur) => (cur.includes(opt) ? cur.filter((i) => i !== opt) : INTERESTS.filter((i) => i === opt || cur.includes(i))));
   const [errors, setErrors] = useState<Errors>({});
   const [alert, setAlert] = useState("");
   const [busy, setBusy] = useState(false);
@@ -31,12 +44,14 @@ export function ContactForm() {
       ContactField,
       string
     >;
-    const found = validateContact(values);
+    const found: Errors = validateContact(values);
+    if (interests.length === 0) found.interests = INTERESTS_ERROR;
     setErrors(found);
     const firstBad = CONTACT_FIELDS.find((f) => found[f]);
-    if (firstBad) {
+    if (found.interests || firstBad) {
       setAlert("Check the highlighted fields.");
-      (form.elements.namedItem(firstBad) as HTMLElement | null)?.focus();
+      if (found.interests) firstToggle.current?.focus();
+      else (form.elements.namedItem(firstBad!) as HTMLElement | null)?.focus();
       return;
     }
     setAlert("");
@@ -47,7 +62,7 @@ export function ContactForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           ...values,
-          interest,
+          interests,
           phone: data.get("phone"),
           specs: data.get("specs") === "on",
           [HONEYPOT]: data.get(HONEYPOT),
@@ -76,7 +91,7 @@ export function ContactForm() {
 
   function again() {
     formRef.current?.reset();
-    setInterest("Animal Nutrition");
+    setInterests([]);
     setErrors({});
     setAlert("");
     setSent(null);
@@ -127,24 +142,34 @@ export function ContactForm() {
             <span className="cform__hint">All fields are required unless marked optional.</span>
           </div>
 
-          <div role="group" aria-labelledby="int-l" className="cform__group">
+          <div
+            role="group"
+            aria-labelledby="int-l"
+            aria-describedby={errors.interests ? "e-interests" : undefined}
+            className="cform__group"
+          >
             <span id="int-l" className="cform__group-label">
-              I’m interested in
+              I’m interested in <span className="field__optional">(choose one or more)</span>
             </span>
             <div className="filters">
-              {INTERESTS.map((opt) => (
+              {INTERESTS.map((opt, i) => (
                 <button
                   key={opt}
+                  ref={i === 0 ? firstToggle : undefined}
                   type="button"
                   className="pill pill--on-white"
-                  aria-pressed={interest === opt}
-                  onClick={() => setInterest(opt)}
+                  aria-pressed={interests.includes(opt)}
+                  onClick={() => toggle(opt)}
                 >
                   {opt}
                 </button>
               ))}
-              <input type="hidden" name="interest" value={interest} />
             </div>
+            {errors.interests ? (
+              <span id="e-interests" className="field__error">
+                {errors.interests}
+              </span>
+            ) : null}
           </div>
 
           <div className="cform__row">
