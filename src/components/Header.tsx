@@ -9,7 +9,16 @@ import { Wordmark } from "./Wordmark";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [stuck, setStuck] = useState(false);
   const menuId = useId();
+
+  // Shadow once the page has scrolled past the top, so the sticky bar reads as floating.
+  useEffect(() => {
+    const onScroll = () => setStuck(window.scrollY > 4);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close the phone menu on navigation and on Escape.
   useEffect(() => setOpen(false), [pathname]);
@@ -23,7 +32,7 @@ export function Header() {
   const isCurrent = (section: string | null) => section !== null && pathname === section;
 
   return (
-    <header className="site-header">
+    <header className={`site-header${stuck ? " is-stuck" : ""}`}>
       <div className="container site-header__bar">
         <Link href="/" aria-label="Darby home" className="site-header__logo">
           <Wordmark height={26} ground="frond" />
