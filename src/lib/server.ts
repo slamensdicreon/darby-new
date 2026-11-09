@@ -161,7 +161,7 @@ export async function deliver(
   }
 
   if (results.length === 0) {
-    console.warn(`[forms] ${kind} received but no delivery is configured (set RESEND_API_KEY)`, JSON.stringify(payload));
+    console.warn(`[forms] ${kind} received but no delivery is configured (set RESEND_API_KEY or RESEND_KEY)`, JSON.stringify(payload));
     return true;
   }
   return results.every(Boolean);

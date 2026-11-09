@@ -3,14 +3,14 @@ import "server-only";
 /**
  * Email delivery through Resend (https://resend.com), by plain HTTPS so there is no SDK
  * to keep current. Configure with environment variables:
- *   RESEND_API_KEY  the key from the Resend dashboard (required to send)
+ *   RESEND_API_KEY  the key from the Resend dashboard (required to send); RESEND_KEY also works
  *   MAIL_TO         recipient inbox; defaults to info@darbyinc.com
  *   MAIL_FROM       verified sender; defaults to Resend's onboarding sender, which only
  *                   delivers to the Resend account's own address until darbyinc.com is
  *                   verified as a domain in Resend
  */
 export const mailConfig = {
-  apiKey: process.env.RESEND_API_KEY,
+  apiKey: process.env.RESEND_API_KEY || process.env.RESEND_KEY,
   to: (process.env.MAIL_TO || "info@darbyinc.com").split(",").map((s) => s.trim()).filter(Boolean),
   from: process.env.MAIL_FROM || "Darby Website <onboarding@resend.dev>",
 };

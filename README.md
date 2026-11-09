@@ -99,7 +99,7 @@ Set these in Vercel (Settings → Environment Variables), then redeploy:
 
 | Variable | Value |
 |---|---|
-| `RESEND_API_KEY` | From resend.com → API Keys. Required; without it, submissions are only written to the function logs. |
+| `RESEND_API_KEY` (or `RESEND_KEY`) | From resend.com → API Keys. Required; without it, submissions are only written to the function logs. |
 | `MAIL_TO` | `stevelamensdorf@gmail.com` while testing, then `info@darbyinc.com`. Comma-separate for several. |
 | `MAIL_FROM` | Leave unset until `darbyinc.com` is verified as a domain in Resend (DNS records they provide). Unverified accounts can send only from Resend's onboarding address and only to the account owner's own email. After verifying: `Darby Website <website@darbyinc.com>`. |
 
