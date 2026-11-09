@@ -8,7 +8,7 @@ import { offices, site, warehouses } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Contact | Darby",
   description:
-    "Talk to the Darby team about specifications, pricing and availability. Sales +1 914 557 0514. 6 Maple Ave, Armonk, NY 10504.",
+    "Talk to the Darby team about specifications, pricing and availability. Sales +1 914 557 0517. 6 Maple Ave, Armonk, NY 10504.",
   path: "/contact",
   image: ogImages.contact,
 });

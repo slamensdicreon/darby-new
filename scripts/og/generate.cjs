@@ -53,7 +53,7 @@ const cards = [
     data: {
       name: "",
       headline: "Talk to the Darby team.",
-      foot: "<b>Sales</b> +1 914 557 0514 · <b>Operations</b> +1 914 774 1660 · <b>Finance</b> +1 914 419 3993<br>info@darbyinc.com · 6 Maple Ave, Armonk, NY 10504",
+      foot: "<b>Sales</b> +1 914 557 0517 · <b>Operations</b> +1 914 774 1660 · <b>Finance</b> +1 914 419 3993<br>info@darbyinc.com · 6 Maple Ave, Armonk, NY 10504",
       image: img("assets/video/darby-hero-poster.jpg"),
       tag: "Stocked at six U.S. ports",
     },

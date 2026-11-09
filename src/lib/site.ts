@@ -27,7 +27,7 @@ export const site = {
   rspoMember: "2-1713-26-000-00",
   /** Direct lines, replacing the former main line (client feedback, Nov 2026). */
   contacts: [
-    { role: "Sales", name: "Ryan Fales", display: "+1 914 557 0514", href: "tel:+19145570514" },
+    { role: "Sales", name: "Ryan Fales", display: "+1 914 557 0517", href: "tel:+19145570517" },
     { role: "Operations", name: "Michael Fales", display: "+1 914 774 1660", href: "tel:+19147741660" },
     { role: "Finance", name: "Corey Rinker", display: "+1 914 419 3993", href: "tel:+19144193993" },
   ],

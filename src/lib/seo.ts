@@ -16,7 +16,7 @@ export const ogImages = {
     url: "/og/darby-personal-care.jpg",
     alt: "Darby Personal Care: esters and triglycerides for personal care.",
   },
-  contact: { url: "/og/darby-contact.jpg", alt: "Talk to the Darby team. Sales +1 914 557 0514." },
+  contact: { url: "/og/darby-contact.jpg", alt: "Talk to the Darby team. Sales +1 914 557 0517." },
 } as const;
 
 type PageSeo = {

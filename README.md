@@ -112,7 +112,7 @@ Applied:
 - Home headline is now "Palm-based ingredients for feed, food and personal care." (was "Palm, refined for feed and food."); the supply section headline is "Animal nutrition, food ingredients and personal care." (was "Two divisions. One palm supply chain."). Site title and descriptions updated to match.
 - "Explore N products" buttons replaced by "Explore {division}". Product counts were later removed everywhere: per-category counts, the totals on the home page, the Food Ingredients hero panel and the share images. The catalog's "Showing N products" line is now read only by screen readers when a filter changes.
 - "Palm specialist" removed everywhere: contact headlines, division buttons, the hero eyebrow, the 1992 proof item, form confirmation and metadata.
-- Main line +1 914 701 0003 removed. Three direct lines added on the contact page, footer, phone menu, home contact prompt, structured data and the contact share image: Sales, Ryan Fales, +1 914 557 0514 · Operations, Michael Fales, +1 914 774 1660 · Finance, Corey Rinker, +1 914 419 3993.
+- Main line +1 914 701 0003 removed. Three direct lines added on the contact page, footer, phone menu, home contact prompt, structured data and the contact share image: Sales, Ryan Fales, +1 914 557 0517 · Operations, Michael Fales, +1 914 774 1660 · Finance, Corey Rinker, +1 914 419 3993.
 - Network map on the contact page: stars for the six warehouses, the Armonk headquarters and the Thailand office, with the equator and the Malaysian and Indonesian origin marked.
 
 After reviewing the reference sites the client sent (Waxian, Global Agri-Trade, Perdue Animal Nutrition):
