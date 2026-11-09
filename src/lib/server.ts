@@ -10,6 +10,13 @@ import { renderNotification, type Row } from "./email-templates";
  */
 const hits = new Map<string, { count: number; reset: number }>();
 
+/** Most recent delivery failure on this instance, for /api/health. No form content is kept. */
+export const deliveryStatus: { lastError: string | null; lastErrorAt: string | null; lastSuccessAt: string | null } = {
+  lastError: null,
+  lastErrorAt: null,
+  lastSuccessAt: null,
+};
+
 export function rateLimited(key: string, limit = 5, windowMs = 10 * 60 * 1000) {
   const now = Date.now();
   if (hits.size > 5000) for (const [k, v] of hits) if (v.reset < now) hits.delete(k);
@@ -138,8 +145,14 @@ export async function deliver(
   if (mailConfig.apiKey) {
     const mail = kind === "contact" ? contactMail(payload as ContactPayload, page) : specMail(payload as SpecPayload, page);
     const sent = await sendMail(mail);
-    if (!sent.ok) console.error(`[forms] ${kind} email failed: ${sent.error}`);
-    else console.info(`[forms] ${kind} email sent to ${mailConfig.to.join(", ")} (${sent.id})`);
+    if (!sent.ok) {
+      console.error(`[forms] ${kind} email failed: ${sent.error}`);
+      deliveryStatus.lastError = `${kind}: ${sent.error}`;
+      deliveryStatus.lastErrorAt = new Date().toISOString();
+    } else {
+      console.info(`[forms] ${kind} email sent to ${mailConfig.to.join(", ")} (${sent.id})`);
+      deliveryStatus.lastSuccessAt = new Date().toISOString();
+    }
     results.push(sent.ok);
   }
 
