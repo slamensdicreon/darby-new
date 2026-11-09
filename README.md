@@ -91,7 +91,21 @@ Both forms validate in the browser exactly as the prototype does, then post to A
 | Contact | `POST /api/contact` | interests (one or more of the three divisions), name, company, phone, email, message, wants specifications |
 | Spec request | `POST /api/specs` | name, email, division, product (if picked from a card), marketing opt-in |
 
-Set `CONTACT_WEBHOOK_URL` and `SPEC_WEBHOOK_URL` to receive each submission as a JSON POST (Zapier, Make, a CRM endpoint, etc.). Without them, submissions are logged on the server only. The in-memory rate limiter is per server instance; use a shared store if stricter limits are needed.
+### Email notifications
+
+Each submission sends a branded email through [Resend](https://resend.com) (`src/lib/email.ts`, templates in `src/lib/email-templates.ts`): a contextual subject and title, the division(s) and product as chips, every field the visitor entered, the time (Eastern) and the page, and a reply button. The visitor's address is set as reply-to, so replying from the inbox answers them directly.
+
+Set these in Vercel (Settings → Environment Variables), then redeploy:
+
+| Variable | Value |
+|---|---|
+| `RESEND_API_KEY` | From resend.com → API Keys. Required; without it, submissions are only written to the function logs. |
+| `MAIL_TO` | `stevelamensdorf@gmail.com` while testing, then `info@darbyinc.com`. Comma-separate for several. |
+| `MAIL_FROM` | Leave unset until `darbyinc.com` is verified as a domain in Resend (DNS records they provide). Unverified accounts can send only from Resend's onboarding address and only to the account owner's own email. After verifying: `Darby Website <website@darbyinc.com>`. |
+
+Optional: `CONTACT_WEBHOOK_URL` and `SPEC_WEBHOOK_URL` also POST each submission as JSON (Zapier, Make, a CRM). When both email and a webhook are configured, the form confirms only if every route succeeds. The in-memory rate limiter is per server instance; use a shared store if stricter limits are needed.
+
+To preview the templates without sending: `node scripts/email/preview.cjs` writes both emails to `/tmp` as HTML.
 
 ## Redirects from the WordPress site
 

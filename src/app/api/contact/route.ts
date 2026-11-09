@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { clientIp, deliver, rateLimited, str } from "@/lib/server";
+import { clientIp, deliver, pageFrom, rateLimited, str } from "@/lib/server";
 import { HONEYPOT, INTERESTS_ERROR, LIMITS, parseInterests, validateContact } from "@/lib/validation";
 
 /** Contact inquiry (build spec 5.2): validated again on the server, honeypot + rate limit. */
@@ -33,12 +33,11 @@ export async function POST(req: Request) {
   if (interests.length === 0) errors.interests = INTERESTS_ERROR;
   if (Object.keys(errors).length) return NextResponse.json({ errors }, { status: 422 });
 
-  const ok = await deliver("contact", {
-    ...input,
-    interests,
-    phone: str(body.phone, LIMITS.short),
-    wantsSpecifications: body.specs === true,
-  });
+  const ok = await deliver(
+    "contact",
+    { ...input, interests, phone: str(body.phone, LIMITS.short), wantsSpecifications: body.specs === true },
+    pageFrom(req),
+  );
   if (!ok) {
     return NextResponse.json(
       { error: "Your message could not be sent. Please try again, or email info@darbyinc.com." },

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { clientIp, deliver, rateLimited, str } from "@/lib/server";
+import { clientIp, deliver, pageFrom, rateLimited, str } from "@/lib/server";
 import { EMAIL_RE, HONEYPOT, LIMITS, SPEC_EMAIL_ERROR } from "@/lib/validation";
 
 const DIVISIONS = ["Animal Nutrition", "Food Ingredients"];
@@ -23,14 +23,18 @@ export async function POST(req: Request) {
   if (!EMAIL_RE.test(email)) return NextResponse.json({ error: SPEC_EMAIL_ERROR }, { status: 422 });
 
   const division = DIVISIONS.includes(String(body.division)) ? String(body.division) : "Unknown";
-  const ok = await deliver("spec-request", {
-    first: str(body.first, LIMITS.short),
-    last: str(body.last, LIMITS.short),
-    email,
-    division,
-    product: str(body.product, LIMITS.short) || null,
-    marketingOptIn: body.optIn === true,
-  });
+  const ok = await deliver(
+    "spec-request",
+    {
+      first: str(body.first, LIMITS.short),
+      last: str(body.last, LIMITS.short),
+      email,
+      division,
+      product: str(body.product, LIMITS.short) || null,
+      marketingOptIn: body.optIn === true,
+    },
+    pageFrom(req),
+  );
   if (!ok) return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 502 });
   return NextResponse.json({ ok: true });
 }
